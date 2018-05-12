@@ -9,6 +9,7 @@ namespace :dev do
     puts %x(rake db:migrate)
     # puts %x(rake db:seed)
     puts %x(rake dev:create_admin)
+    puts %x(rake dev:create_university)
     puts %x(rake dev:create_users)
     puts %x(rake dev:create_drivers)
     puts "Setup completado com sucesso"
@@ -24,6 +25,18 @@ namespace :dev do
           password_confirmation: "123456"
         )
     puts "ADMIN PADRÃO CADASTRADO COM SUCESSO!"
+  end
+  ##########################################################
+  ##########################################################
+  desc "Cria universidades falsas"
+  task create_university: :environment do
+    puts "Cadastrando as universidades"
+      5.times do
+        university = University.create!(
+          name: Faker::Pokemon.name,
+          city: Faker::Pokemon.location
+        )
+      end
   end
   ##########################################################
   ##########################################################

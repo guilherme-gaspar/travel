@@ -75,10 +75,10 @@ class Backoffice::Admins::UsersController < Backoffice::AdminsController
 
       if @user.blank? # Aqui ele estará sendo criado, pois está em branco
         params.require(:user).permit(:id, :email, :password, :password_confirmation, :name,
-                                     :street, :city, :number, :state, :phone, contract_attributes: [:due_date, :number_installments, :value] )
+                                     :street, :city, :number, :state, :phone, :university, contract_attributes: [:due_date, :number_installments, :value] )
       else # Aqui ele estará sendo atualizado, se não estiver em branco...
         params.require(:user).permit(:id, :email, :password, :password_confirmation, :name,
-                                     :street, :city, :number, :state, :phone, contract_attributes: [:due_date, :number_installments, :value] )
+                                     :street, :city, :number, :state, :phone, :university, contract_attributes: [:due_date, :number_installments, :value] )
       end
 
 

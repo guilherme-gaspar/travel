@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   has_one :contract
   belongs_to :admin
+  belongs_to :university
 
   accepts_nested_attributes_for :contract
 
