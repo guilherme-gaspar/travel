@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <i class="fa fa-warning"></i>
+
+        <h3 class="box-title">Manha</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="container">
+          <div id="map" style='width: 470px; height: 400px; '></div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+  <!-- /.col -->
+
+  <div class="col-md-6">
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <i class="fa fa-bullhorn"></i>
+
+        <h3 class="box-title">Tarde</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="container">
+          <div id="map" style='width: 470px; height: 400px; '></div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+
+  <div class="col-md-12">
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <i class="fa fa-bullhorn"></i>
+
+        <h3 class="box-title">Noite</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="container">
+          <div id="map" style='width: 470px; height: 400px; '></div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+  <!-- /.col -->
+</div>
+
+
+
+
+<%= javascript_tag do %>
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+
+function calcRoute() {
+
+var origin      = "<%= @ulbra %>";
+var destination = "<%= @capao %>";
+var request = {
+  origin:      origin,
+  destination: destination,
+  travelMode:  google.maps.TravelMode.DRIVING
+};
+directionsService.route(request, function(response, status) {
+if (status == google.maps.DirectionsStatus.OK) {
+  directionsDisplay.setDirections(response);
+}
+});
+}
+
+calcRoute(); // call this anywhere you want
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'map'}}, function(){
+directionsDisplay.setMap(handler.getMap());
+});
+<% end %>

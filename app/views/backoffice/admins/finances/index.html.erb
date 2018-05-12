@@ -1,0 +1,17 @@
+
+
+<%= form_tag backoffice_admins_finances_search_path, method: :get, remote: true do %>
+  <div class="input-group">
+    <%= select_tag "by_name_finances", options_from_collection_for_select(@users, "name", "name"), include_blank: true, class: "form-control" %>
+    <span class="input-group-btn">
+      <%= button_tag(nil, class: "btn btn-flat") do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    </span>
+  </div>
+<% end %>
+
+<br />
+
+<div id="resultado">
+</div>

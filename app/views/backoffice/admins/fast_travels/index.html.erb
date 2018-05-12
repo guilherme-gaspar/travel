@@ -1,0 +1,75 @@
+
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Viagens rápidas</h3>
+    <div class="pull-right">
+      <%= link_to new_backoffice_admins_fast_travel_path, class: "btn btn-success" do %>
+         <i class="fa fa-save"></i>  Nova viagem rápida
+      <% end %>
+    </div>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th style="width: 10px">#</th>
+          <th>Nome do contratante</th>
+          <th>Email do contratante</th>
+          <th>Percurso inicial</th>
+          <th>Percurso final</th>
+          <th>Total</th>
+          <th>Data de vencimento</th>
+          <th style="width: 150px"></th>
+        </tr>
+        <% @fast_travels.each do |ft| %>
+        <tr>
+          <td><%= ft.id %></td>
+          <td><%= ft.name %></td>
+          <td><%= ft.email %></td>
+          <td><%= ft.inicial_tour %></td>
+          <td><%= ft.final_tour %></td>
+          <td><%= ft.price %></td>
+          <td style="text-align: center"><span class="badge bg-red"><%= ft.due_date %></span></td>
+          <td>
+            <button type="button" class="btn btn-primary"><i class="fa fa-file-text-o"></i></button>
+            <%= link_to edit_backoffice_admins_fast_travel_path(ft), class: "btn btn-info", title: "Editar" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to backoffice_admins_fast_travel_path(ft), method: :delete, title: "Remover", class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir a viagem rápida do(a) <b>#{ft.name}</b>?" } do %>
+              <i class="fa fa-ban"></i>
+            <% end %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+              Launch demo modal
+            </button>
+          </td>
+
+        </tr>
+        <% end %>
+    </tbody></table>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <%= paginate @fast_travels %>
+    </ul>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel"><b><%= t('labels.new_message') %></b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style='width: 400px;'>
+          <div id="map" style='width: 400px; height: 400px;'></div>
+        </div>
+    </div>
+  </div>
+</div>
