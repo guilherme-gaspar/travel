@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   namespace :backoffice do
     namespace :users do
       resources :home, only: [:index]
+      resources :finances, only: [:index]
     end
   end
 

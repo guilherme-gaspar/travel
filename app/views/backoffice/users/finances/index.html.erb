@@ -1,0 +1,45 @@
+<div class="box">
+  <div class="box-body">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th style="width: 80px">Fatura #</th>
+          <th>Vencimento</th>
+          <th style="width: 60px">Status</th>
+          <th>Valor</th>
+          <th style="width: 150px"></th>
+        </tr>
+        <% @invoices.each do |invoice| %>
+        <tr>
+          <td><%= invoice.id %></td>
+          <td><%= invoice.due_date.strftime("%d/%m/%Y") %></td>
+          <% if invoice.status == 0 %>
+            <td>
+              <span class="label label-danger">Pendente</span>
+            </td>
+          <% elsif invoice.status == 1 %>
+            <td>
+              <span class="label label-success">Paga</span>
+            </td>
+          <% end %>
+          <td><%= invoice.value %></td>
+          <td>
+            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
+            <%= link_to 'oi', class: "btn btn-info" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to 'oi', method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir o usuário <b></b>?" } do %>
+              <i class="fa fa-ban"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody></table>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+
+    </ul>
+  </div>
+</div>
