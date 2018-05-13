@@ -83,7 +83,7 @@
 
       <div class="form-group col-md-4">
         <%= f.label :university %>
-        <%= f.select(:university, University.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
+        <%= f.select(:university_id, University.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
       </div>
 
       <div class="col-md-12">

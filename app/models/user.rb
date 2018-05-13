@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? }
 
+  # validates
+  validates :name, presence: true
+
   # Scopos
   scope :by_name_search, ->(code) { joins(:contract).where("name = ?", "#{code}") }
 

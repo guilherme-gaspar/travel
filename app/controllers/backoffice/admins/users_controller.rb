@@ -14,9 +14,9 @@ class Backoffice::Admins::UsersController < Backoffice::AdminsController
     @user = User.new(params_user)
     @user.contract.admin = current_admin
     @user.admin = current_admin
-    create_invoice(@user)
-
+    
     if @user.save
+      create_invoice(@user)
       redirect_to backoffice_admins_users_path, notice: "O usuário (#{@user.name}) foi cadastrado com sucesso!"
     else
       render :new
@@ -75,10 +75,10 @@ class Backoffice::Admins::UsersController < Backoffice::AdminsController
 
       if @user.blank? # Aqui ele estará sendo criado, pois está em branco
         params.require(:user).permit(:id, :email, :password, :password_confirmation, :name,
-                                     :street, :city, :number, :state, :phone, :university, contract_attributes: [:due_date, :number_installments, :value] )
+                                     :street, :city, :number, :state, :phone, :university_id, contract_attributes: [:due_date, :number_installments, :value] )
       else # Aqui ele estará sendo atualizado, se não estiver em branco...
         params.require(:user).permit(:id, :email, :password, :password_confirmation, :name,
-                                     :street, :city, :number, :state, :phone, :university, contract_attributes: [:due_date, :number_installments, :value] )
+                                     :street, :city, :number, :state, :phone, :university_id, contract_attributes: [:due_date, :number_installments, :value] )
       end
 
 
