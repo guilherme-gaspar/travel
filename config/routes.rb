@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'backoffice/admins/finances/search'
   devise_for :drivers
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations' }
+
 
 
   namespace :backoffice do
@@ -20,6 +21,12 @@ Rails.application.routes.draw do
       resources :reports, except: [:show]
       resources :dashboard, except: [:show]
       resources :users, except: [:show]
+    end
+  end
+
+  namespace :backoffice do
+    namespace :users do
+      resources :home, only: [:index]
     end
   end
 
