@@ -31,6 +31,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :checkout do
+    resources :payments, only: [:create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
