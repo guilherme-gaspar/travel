@@ -39,6 +39,8 @@ GEM
       tzinfo (~> 1.1)
     adminlte2-rails (0.0.6)
       bootstrap-sass (~> 3.3.4.1)
+    aitch (0.5.0)
+      nokogiri (>= 1.6.0)
     arel (6.0.4)
     autoprefixer-rails (8.2.0)
       execjs
@@ -119,6 +121,11 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    pagseguro-oficial (2.5.0)
+      aitch (~> 0.2)
+      i18n (~> 0.7)
+      json (~> 1.8)
+      nokogiri (~> 1.6)
     paperclip (6.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -130,6 +137,7 @@ GEM
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
     rack (1.6.9)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5)
@@ -236,8 +244,10 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-i18n
+  pagseguro-oficial (~> 2.5.0)
   paperclip (~> 6.0.0)
   prawn
+  rack-cors
   rails (= 4.2.5)
   rails-assets-bootbox!
   rails-assets-bootstrap-jasny!

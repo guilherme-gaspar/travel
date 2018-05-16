@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   namespace :checkout do
     resources :payments, only: [:create]
+    resources :notifications, only: [:create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

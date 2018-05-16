@@ -13,11 +13,11 @@
         <tr>
           <td><%= invoice.id %></td>
           <td><%= invoice.due_date.strftime("%d/%m/%Y") %></td>
-          <% if invoice.status == 0 %>
+          <% if invoice.pending? %>
             <td>
               <span class="label label-danger">Pendente</span>
             </td>
-          <% elsif invoice.status == 1 %>
+          <% elsif invoice.paid? %>
             <td>
               <span class="label label-success">Paga</span>
             </td>
