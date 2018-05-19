@@ -81,10 +81,16 @@
         </div>
       <% end %>
 
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-12">
         <%= f.label :university %>
         <%= f.select(:university_id, University.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
       </div>
+
+      <%= f.fields_for :week do |week| %>
+        <div class="form-group col-md-1">
+          <%= week.label :mond %>
+        </div>
+      <% end %>
 
       <div class="col-md-12">
         <button type="submit" class="btn btn-primary pull-right">Salvar</button>

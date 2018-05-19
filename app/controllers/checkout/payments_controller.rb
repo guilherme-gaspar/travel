@@ -1,5 +1,6 @@
 class Checkout::PaymentsController < ApplicationController
   def create
+    
     # Email: c09640788250725777119@sandbox.pagseguro.com.br
     # Senha: w6082033298M8xj3
     # Cartão de Crédito: 4111111111111111, Bandeira: VISA, Válido até: 12/2030, CVV: 123

@@ -8,13 +8,14 @@ class Backoffice::Admins::UsersController < Backoffice::AdminsController
   def new
     @user = User.new
     @user.build_contract
+    @user.build_week
   end
 
   def create
     @user = User.new(params_user)
     @user.contract.admin = current_admin
     @user.admin = current_admin
-    
+
     if @user.save
       create_invoice(@user)
       redirect_to backoffice_admins_users_path, notice: "O usuário (#{@user.name}) foi cadastrado com sucesso!"

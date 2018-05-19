@@ -15,10 +15,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :contract
+  has_one :week
   belongs_to :admin
   belongs_to :university
 
-  accepts_nested_attributes_for :contract
+  accepts_nested_attributes_for :contract, :week
 
 
   def address
