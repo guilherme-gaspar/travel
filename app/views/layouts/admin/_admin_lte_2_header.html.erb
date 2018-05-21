@@ -53,50 +53,18 @@
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu Toggle Button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="#" class="dropdown-toggle">
             <!-- The user image in the navbar-->
             <%= image_tag current_admin.avatar.url(:small), class: "user-image" %>
             <!-- <img src="/assets/user2-160x160.jpg" class="user-image" alt="User Image"/> -->
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
             <span class="hidden-xs"><%= current_admin.fantasy_name %></span>
           </a>
-          <ul class="dropdown-menu">
-            <!-- The user image in the menu -->
-            <li class="user-header">
-              <%= image_tag current_admin.avatar.url(:thumb), class: "img-circle" %>
-              <!-- <img src="/assets/user2-160x160.jpg" class="img-circle" alt="User Image" /> -->
-              <p>
-                <%= current_admin.fantasy_name %>
-                <small><%= current_admin.cnpj %></small>
-              </p>
-            </li>
-            <!-- Menu Body -->
-            <li class="user-body">
-              <div class="col-xs-4 text-center">
-                <a href="#">Usuários</a>
-              </div>
-              <div class="col-xs-4 text-center">
-                <a href="#">Financeiro</a>
-              </div>
-              <div class="col-xs-4 text-center">
-                <a href="#">Rotas</a>
-              </div>
-            </li>
-            <!-- Menu Footer-->
-            <li class="user-footer">
-              <div class="pull-left">
-                <%= link_to 'Perfil', edit_backoffice_admins_profile_path(current_admin), class: "btn btn-default btn-flat" %>
-              </div>
-              <div class="pull-right">
-                <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-default btn-flat" do %>
-                  Sair
-                <% end %>
-              </div>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "", data: {confirm: "Você tem certeza que deseja sair?" } do %>
+              <i class="fa fa-sign-out"></i>
+            <% end %>
+          </li>
         </li>
       </ul>
     </div>

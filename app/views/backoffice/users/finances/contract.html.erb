@@ -1,0 +1,117 @@
+
+    <!-- Main content -->
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-automobile"></i> <%= @admin.fantasy_name %>
+            <small class="pull-right"><%= @contract.created_at.strftime("%d/%m/%Y") %></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          De
+          <address>
+            <strong><%= @admin.fantasy_name %></strong><br>
+            <%= "#{@admin.street} - #{@admin.number} #{@admin.city}/#{@admin.state}" %><br>
+            Telefone: <%= @admin.phone %><br>
+            Email: <%= @admin.email %>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          Para
+          <address>
+            <strong><%= current_user.name %></strong><br>
+            <%= "#{current_user.street} - #{current_user.number} #{current_user.city}/#{current_user.state}" %><br>
+            Telefone: <%= current_user.phone %><br>
+            Email: <%= current_user.email %>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <b>Contrato de número #<%= @contract.id %></b><br>
+          <br>
+          <b>Quantidade de parcelas:</b> <%= @invoices.count %><br>
+          <b>Dia de vencimento:</b> <%= @contract.due_date %><br>
+          <b>Recebedor:</b> <%= @admin.fantasy_name %>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Código</th>
+              <th>Data de vencimento</th>
+              <th>Valor</th>
+
+            </tr>
+            </thead>
+            <tbody>
+              <% @invoices.each do |invoice| %>
+              <tr>
+                <td><%= invoice.id %></td>
+                <td><%= invoice.due_date.strftime("%d/%m/%Y") %></td>
+                <td><%= invoice.value %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+          <p class="lead">Meios de pagamento:</p>
+          <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+            O Pagamento será processado pelo PagSeguro e você vai conseguir escolher as formas de pagamento de: Boleto, Cartão de Débito, Cartão de Crédito.
+          </p>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+          <p class="lead">Data de vencimento: <%= @contract.due_date %></p>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <th style="width:50%">Valor das parcelas:</th>
+                <td>R$ <%= @contract.value/@invoices.count %> (<%= @invoices.count %>)</td>
+              </tr>
+              <tr>
+                <th>Total:</th>
+                <td>R$ <%= @contract.value %> </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+            <%= link_to backoffice_users_finances_path, class: "btn btn-success pull-right" do %>
+              <i class="fa fa-credit-card"></i> Pagar as parcelas
+            <% end%>
+          </button>
+          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" onclick="window.print();">
+            <i class="fa fa-download"></i> Gerar PDF
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>

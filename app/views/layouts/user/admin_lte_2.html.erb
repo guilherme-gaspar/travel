@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Travel | Manager</title>
-  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -22,13 +22,13 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="hold-transition skin-blue layout-top-nav" style="height: auto; min-height: 100%;">
   <div class="wrapper">
 
     <%= render partial: 'layouts/user/admin_lte_2_header' %>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="min-height: 546px;">
       <!-- Content Header (Page header) -->
 
       <!-- Main content -->
@@ -48,7 +48,15 @@
             <b><%= alert %></b>
           </div>
         <% end %>
-        <%= yield %>
+        <div class="content-wrapper">
+          <div class="container">
+            <section class="content">
+            <%= yield %>
+            </section>
+            <!-- /.content -->
+          </div>
+          <!-- /.container -->
+        </div>
       </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
@@ -59,7 +67,6 @@
           Gerenciador de viagens
         </div>
         <strong>Copyright &copy; 2018 <a href="#">Travel Manager</a>.</strong> Todos os direitos reservados.
-        reserved.
       </div>
     <!-- /.container -->
     </footer>
