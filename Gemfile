@@ -57,6 +57,7 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 # JASNY
 gem 'rails-assets-bootstrap-jasny', source: 'https://rails-assets.org'
+
 # PRAWN para PDF
 gem 'prawn'
 # Select2 Rails

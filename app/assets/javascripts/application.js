@@ -24,6 +24,8 @@
 //= require app
 //= require_tree .
 
+
+
 $.rails.allowAction = function(element) {
   var message = element.attr('data-confirm');
   if (!message) { return true; }
