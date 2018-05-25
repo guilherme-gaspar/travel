@@ -28,7 +28,7 @@
             <%= form_tag checkout_payments_path do %>
                 <%= hidden_field_tag :invoice_id, invoice.id %>
                 <%= button_tag type: "submit", class: "btn btn-success", data: {confirm: "Você tem certeza que deseja pagar esta conta?" } do %>
-                  <i class="fa fa-dollar"></i>
+                  <b>Pagar</b> <i class="fa fa-dollar"></i> 
                 <% end%>
             <% end %>
           </td>

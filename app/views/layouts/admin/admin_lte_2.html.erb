@@ -36,10 +36,14 @@
       <section class="content-header">
         <h1>
           Travel Manager
-          <small>Descrição geral</small>
+          <small><%= params[:controller] %></small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li>
+            <%= link_to backoffice_admins_dashboard_index_path do %>
+              <i class="fa fa-dashboard"></i> Dashboard
+            <% end %>
+          </li>
           <li class="active">Aqui</li>
         </ol>
       </section>
