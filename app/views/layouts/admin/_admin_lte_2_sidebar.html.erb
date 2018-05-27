@@ -85,6 +85,12 @@
         <% end%>
       </li>
 
+      <li class="<%= current_class?(edit_backoffice_admins_setting_path(current_admin.id)) %>">
+        <%= link_to edit_backoffice_admins_setting_path(current_admin.id) do %>
+          <i class="fa fa-gears"></i><span>Configurações gerais</span>
+        <% end%>
+      </li>
+
       <li class="<%= current_class?(backoffice_admins_reports_path) %>">
         <%= link_to backoffice_admins_reports_path do %>
           <i class="fa fa-pie-chart"></i><span>Relatórios</span>

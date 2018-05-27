@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :universities, except: [:show]
       resources :routes, only: [:index]
       resources :profile
+      resources :settings
       resources :fast_travels, except: [:show]
       resources :drivers, except: [:show]
       resources :finances, except: [:show]
