@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518223450) do
+ActiveRecord::Schema.define(version: 20180525152945) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -101,6 +101,16 @@ ActiveRecord::Schema.define(version: 20180518223450) do
   end
 
   add_index "invoices", ["contract_id"], name: "index_invoices_on_contract_id"
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "token"
+    t.integer  "days_for_payment"
+    t.integer  "admin_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "settings", ["admin_id"], name: "index_settings_on_admin_id"
 
   create_table "universities", force: :cascade do |t|
     t.string   "name"
