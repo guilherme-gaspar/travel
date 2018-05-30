@@ -54,6 +54,7 @@ namespace :dev do
           number: "1865",
           phone: Faker::PhoneNumber.phone_number,
           street: "Avenida paraguassu",
+          university: University.find([1,2,3,4,5].sample),
           admin: Admin.find(1)
         )
         contract = Contract.create!(
@@ -69,6 +70,16 @@ namespace :dev do
           contract: contract,
           value: [10, 20, 30, 40, 50].sample
         )
+        week = Week.create!(
+          mond: "M",
+          tues: "M",
+          wedn: "M",
+          thur: "M",
+          frid: "M",
+          satu: "M",
+          user_id: user.id
+        )
+
       end
     puts "Usuários falsos cadastrados com sucesso"
   end

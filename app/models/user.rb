@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   belongs_to :admin
   belongs_to :university
 
-  accepts_nested_attributes_for :contract, :week
+  accepts_nested_attributes_for :contract
+  accepts_nested_attributes_for :week
 
 
   def address
