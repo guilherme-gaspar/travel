@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :contract
-  has_one :week
+  has_one :contract, dependent: :destroy
+  has_one :week, dependent: :destroy
   belongs_to :admin
   belongs_to :university
 

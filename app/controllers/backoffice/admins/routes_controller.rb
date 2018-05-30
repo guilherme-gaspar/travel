@@ -1,5 +1,6 @@
 class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   def index
+    @weeks = Week.all
     @users = User.all
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
 
@@ -12,4 +13,5 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
     @ulbra = "ulbra torres"
     @capao = "capao da canoa, rio grande do sul"
   end
+
 end

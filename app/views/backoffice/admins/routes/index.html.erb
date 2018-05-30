@@ -6,7 +6,7 @@
 
       <div class="info-box-content">
         <span class="info-box-text">Manha</span>
-        <span class="info-box-number">2</span>
+        <span class="info-box-number"><%= period_day("M") %></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -21,7 +21,7 @@
 
       <div class="info-box-content">
         <span class="info-box-text">Tarde</span>
-        <span class="info-box-number">12</span>
+        <span class="info-box-number"><%= period_day("T") %></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -34,7 +34,7 @@
 
       <div class="info-box-content">
         <span class="info-box-text">Noite</span>
-        <span class="info-box-number"><%= @users.count %></span>
+        <span class="info-box-number"><%= period_day("N") %></span>
       </div>
       <!-- /.info-box-content -->
     </div>
