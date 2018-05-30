@@ -16,47 +16,49 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="login-page">
+  <div class="col-md-6 col-sm-offset-3">
+    <div class="text-center">
+      <% if notice %>
+        <div class="alert alert-success alert-dismissable">
+          <i class="fa fa-check"></i>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <b><%= notice %></b>
+        </div>
+      <% end %>
 
-<div class="login-box">
-  <div class="text-center">
-    <% if notice %>
-      <div class="alert alert-success alert-dismissable">
-        <i class="fa fa-check"></i>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <b><%= notice %></b>
-      </div>
-    <% end %>
-
-    <% if alert %>
-      <div class="alert alert-danger alert-dismissable">
-        <i class="fa fa-ban"></i>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <b><%= alert %></b>
-      </div>
-    <% end %>
+      <% if alert %>
+        <div class="alert alert-danger alert-dismissable">
+          <i class="fa fa-ban"></i>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <b><%= alert %></b>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="login-logo">
-    <a href="/"><b>Travel</b>Manager</a>
-  </div><!-- /.login-logo -->
+  <section class="content login-content" style="margin: 10% auto">
 
-  <div class="login-box-body">
+  <div class="col-xs-12 col-sm-offset-3 col-sm-6 login-box-body">
+    <div class="login-logo">
+      <a href="/"><b>Travel | Manager</a>
+    </div><!-- /.login-logo -->
+
     <p class="login-box-msg">Entre para iniciar com o sistema!</p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group has-feedback">
-        <%= f.text_field :email, class: 'form-control', autofocus: true %>
+        <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: "Email" %>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: "Senha" %>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        <div class="col-xs-4 pull-right">
+        <div class="col-xs-3 pull-right">
           <%= f.submit 'Entrar', class: 'btn btn-primary btn-block btn-flat' %>
         </div><!-- /.col -->
         <% if request.path == new_admin_session_path %>
-          <div class="col-xs-4 pull-left">
+          <div class="col-xs-3 pull-left">
             <%= link_to 'Registrar', new_admin_registration_path, class: 'btn btn-info btn-block btn-flat' %>
           </div><!-- /.col -->
         <% end %>
@@ -64,7 +66,7 @@
 
     <% end %>
   </div><!-- /.login-box-body -->
-</div><!-- /.login-box -->
+  </section>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>

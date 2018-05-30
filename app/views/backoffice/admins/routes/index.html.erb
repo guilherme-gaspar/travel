@@ -1,41 +1,96 @@
+<!-- Info boxes -->
 <div class="row">
-  <div class="col-md-6">
-    <div class="box box-default">
-      <div class="box-header with-border">
-        <i class="fa fa-warning"></i>
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-file-text-o"></i></span>
 
-        <h3 class="box-title">Manha</h3>
+      <div class="info-box-content">
+        <span class="info-box-text">Manha</span>
+        <span class="info-box-number">2</span>
       </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div class="container">
-          <div id="map" style='width: 470px; height: 400px; '></div>
-        </div>
-      </div>
-      <!-- /.box-body -->
+      <!-- /.info-box-content -->
     </div>
-    <!-- /.box -->
+    <!-- /.info-box -->
+  </div>
+  <!-- fix for small devices only -->
+  <div class="clearfix visible-sm-block"></div>
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green"><i class="fa fa-file-text-o"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Tarde</span>
+        <span class="info-box-number">12</span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
   </div>
   <!-- /.col -->
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-yellow"><i class="fa fa-file-text-o"></i></span>
 
-  <div class="col-md-6">
-    <div class="box box-default">
-      <div class="box-header with-border">
-        <i class="fa fa-bullhorn"></i>
-
-        <h3 class="box-title">Tarde</h3>
+      <div class="info-box-content">
+        <span class="info-box-text">Noite</span>
+        <span class="info-box-number"><%= @users.count %></span>
       </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div class="container">
-          <div id="map" style='width: 470px; height: 400px; '></div>
-        </div>
-      </div>
-      <!-- /.box-body -->
+      <!-- /.info-box-content -->
     </div>
-    <!-- /.box -->
+    <!-- /.info-box -->
   </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
 
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Rotas</h3>
+    <div class="pull-right">
+      <%= link_to new_backoffice_admins_user_path, class: "btn btn-success" do %>
+         <i class="fa fa-save"></i>  Nova rota
+      <% end %>
+    </div>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th style="width: 10px">#</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th style="width: 150px"></th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
+            <%= link_to edit_backoffice_admins_user_path(user), class: "btn btn-info" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to backoffice_admins_user_path(user), method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir o usuário <b>#{user.name}</b>?" } do %>
+              <i class="fa fa-ban"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody></table>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+
+    </ul>
+  </div>
+</div>
+
+<!-- Mapa mostrando -->
+<!-- <div class="row"
   <div class="col-md-12">
     <div class="box box-default">
       <div class="box-header with-border">
@@ -43,18 +98,18 @@
 
         <h3 class="box-title">Noite</h3>
       </div>
-      <!-- /.box-header -->
+
       <div class="box-body">
         <div class="container">
           <div id="map" style='width: 470px; height: 400px; '></div>
         </div>
       </div>
-      <!-- /.box-body -->
+
     </div>
-    <!-- /.box -->
+
   </div>
-  <!-- /.col -->
-</div>
+
+</div> -->
 
 
 

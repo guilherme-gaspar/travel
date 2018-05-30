@@ -16,6 +16,8 @@
 //= require bootstrap-jasny
 //= require bootbox
 //= require underscore
+//= require Chart.bundle
+//= require chartkick
 //= require select2
 //= require gmaps/google
 //= require daterangepicker

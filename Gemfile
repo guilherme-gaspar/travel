@@ -62,6 +62,10 @@ gem 'rails-assets-bootstrap-jasny', source: 'https://rails-assets.org'
 gem 'prawn'
 # Select2 Rails
 gem "select2-rails"
+# ChartKick para graficos
+gem 'chartkick', '~> 2.2.0'
+# The simplest way to group temporal data
+gem 'groupdate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
