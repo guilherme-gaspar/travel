@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531162202) do
+ActiveRecord::Schema.define(version: 20180531170746) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -118,6 +118,22 @@ ActiveRecord::Schema.define(version: 20180531162202) do
 
   add_index "notifications", ["admin_id"], name: "index_notifications_on_admin_id"
   add_index "notifications", ["university_id"], name: "index_notifications_on_university_id"
+
+  create_table "routes", force: :cascade do |t|
+    t.integer  "driver_id"
+    t.integer  "admin_id"
+    t.integer  "university_id"
+    t.integer  "car_id"
+    t.string   "origin"
+    t.string   "period_day"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "routes", ["admin_id"], name: "index_routes_on_admin_id"
+  add_index "routes", ["car_id"], name: "index_routes_on_car_id"
+  add_index "routes", ["driver_id"], name: "index_routes_on_driver_id"
+  add_index "routes", ["university_id"], name: "index_routes_on_university_id"
 
   create_table "settings", force: :cascade do |t|
     t.string   "token"

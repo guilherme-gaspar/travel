@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver_id: 
+  admin_id: 
+  university_id: 
+  car_id: 
+  origin: MyString
+  period_day: MyString
+
+two:
+  driver_id: 
+  admin_id: 
+  university_id: 
+  car_id: 
+  origin: MyString
+  period_day: MyString

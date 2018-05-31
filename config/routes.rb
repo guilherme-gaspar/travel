@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     namespace :admins do
       resources :universities, except: [:show]
       resources :cars, except: [:show]
-      resources :routes, only: [:index]
+      resources :routes, except: [:show]
       resources :profile
       resources :notifications
       resources :settings

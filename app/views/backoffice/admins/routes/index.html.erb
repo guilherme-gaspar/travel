@@ -44,11 +44,12 @@
 </div>
 <!-- /.row -->
 
+
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title">Rotas</h3>
     <div class="pull-right">
-      <%= link_to new_backoffice_admins_user_path, class: "btn btn-success" do %>
+      <%= link_to new_backoffice_admins_route_path, class: "btn btn-success" do %>
          <i class="fa fa-save"></i>  Nova rota
       <% end %>
     </div>
@@ -59,21 +60,33 @@
       <tbody>
         <tr>
           <th style="width: 10px">#</th>
-          <th>Nome</th>
-          <th>Email</th>
+          <th>Origim</th>
+          <th>Carro</th>
+          <th>Periodo</th>
           <th style="width: 150px"></th>
         </tr>
-        <% @users.each do |user| %>
+        <% @routes.each do |route| %>
         <tr>
-          <td><%= user.id %></td>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
+          <td><%= route.id %></td>
+          <td><%= route.origin %></td>
+          <td><%= route.car.plate %></td>
+          <td>
+            <% if route.period_day == "N" %>
+              <%= "Noite" %>
+            <% elsif route.period_day == "M" %>
+              <%= "Manha" %>
+            <% elsif route.period_day == "T" %>
+              <%= "Tarde" %>
+            <% else %>
+              <%= "Dia todo" %>
+            <% end %>
+          </td>
           <td>
             <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
-            <%= link_to edit_backoffice_admins_user_path(user), class: "btn btn-info" do %>
+            <%= link_to edit_backoffice_admins_route_path(route), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>
-            <%= link_to backoffice_admins_user_path(user), method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir o usuário <b>#{user.name}</b>?" } do %>
+            <%= link_to backoffice_admins_route_path(route), method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir a rota <b>#{route.period_day}</b>?" } do %>
               <i class="fa fa-ban"></i>
             <% end %>
           </td>
@@ -84,10 +97,11 @@
   <!-- /.box-body -->
   <div class="box-footer clearfix">
     <ul class="pagination pagination-sm no-margin pull-right">
-
+      <%= paginate @routes %>
     </ul>
   </div>
 </div>
+
 
 <!-- Mapa mostrando -->
 <!-- <div class="row"
