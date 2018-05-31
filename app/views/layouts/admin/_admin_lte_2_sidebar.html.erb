@@ -44,18 +44,6 @@
         <% end%>
       </li>
 
-      <li class="<%= current_class?(backoffice_admins_drivers_path) %>">
-        <%= link_to backoffice_admins_drivers_path do %>
-          <i class="fa fa-truck"></i><span>Motoristas</span>
-        <% end%>
-      </li>
-
-      <li class="<%= current_class?(backoffice_admins_routes_path) %>">
-        <%= link_to backoffice_admins_routes_path do %>
-          <i class="fa fa-bus"></i><span>Rotas</span>
-        <% end%>
-      </li>
-
       <li class="treeview">
         <a href="#"><i class='fa fa-paper-plane-o'></i> <span>Viagens</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
@@ -64,7 +52,11 @@
               <span>Viagem rápida</span>
             <% end%>
           </li>
-          <li><a href="#">Transporte universitário</a></li>
+          <li>
+            <%= link_to backoffice_admins_routes_path do %>
+              <span>Transporte universitário (rotas)</span>
+            <% end%>
+          </li>
           <li>
             <%= link_to backoffice_admins_universities_path do %>
               <span>Universidades</span>
@@ -75,6 +67,12 @@
               <span>Carros</span>
             <% end%>
           </li>
+          <li>
+            <%= link_to backoffice_admins_drivers_path do %>
+              <span>Motoristas</span>
+            <% end%>
+          </li>
+
         </ul>
       </li>
 
