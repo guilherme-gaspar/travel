@@ -2,7 +2,7 @@ class Backoffice::Admins::DriversController < Backoffice::AdminsController
   before_action :set_driver, only: [:edit, :update, :destroy]
 
   def index
-    @drivers = Driver.all.page(params[:page]).per(7)
+    @drivers = Driver.all.where(["admin_id = ?", current_admin.id]).page(params[:page]).per(7)
   end
 
   def new

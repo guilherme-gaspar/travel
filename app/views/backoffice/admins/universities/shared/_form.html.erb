@@ -1,0 +1,40 @@
+<% if @university.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <b><% @university.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %></b>
+  </div>
+<% end %>
+
+<%= form_for([:backoffice, :admins, @university]) do |f| %>
+<div class="box box-info">
+
+<div class="box-header with-border">
+  <h3 class="box-title"><%= action_message %></h3>
+</div>
+<!-- /.box-header -->
+<!-- form start -->
+
+  <div class="box-body">
+
+    <div class="form-group col-md-6">
+      <%= f.label :name %>
+      <%= f.text_field :name, class:"form-control", placeholder: "Nome da universidade" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.label :city %>
+      <%= f.text_field :city, class:"form-control", placeholder: "Cidade da universidade" %>
+    </div>
+
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+    </div>
+
+  </div>
+
+  <!-- /.box-body -->
+</div>
+
+<% end %>

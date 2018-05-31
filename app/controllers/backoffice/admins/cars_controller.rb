@@ -2,7 +2,7 @@ class Backoffice::Admins::CarsController < Backoffice::AdminsController
   before_action :set_car, only: [:edit, :update, :destroy]
 
   def index
-    @cars = Car.all.page(params[:page]).per(7)
+    @cars = Car.all.where(["admin_id = ?", current_admin.id]).page(params[:page]).per(7)
   end
 
   def new

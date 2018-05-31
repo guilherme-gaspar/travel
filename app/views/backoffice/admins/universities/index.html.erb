@@ -3,7 +3,7 @@
   <div class="box-header with-border">
     <h3 class="box-title">Universidades</h3>
     <div class="pull-right">
-      <%= link_to new_backoffice_admins_user_path, class: "btn btn-success" do %>
+      <%= link_to new_backoffice_admins_university_path, class: "btn btn-success" do %>
          <i class="fa fa-save"></i>  Nova universidade
       <% end %>
     </div>
@@ -24,7 +24,13 @@
           <td><%= university.name %></td>
           <td><%= university.city %></td>
           <td>
-
+            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
+            <%= link_to edit_backoffice_admins_university_path(university), class: "btn btn-info" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to backoffice_admins_university_path(university), method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir a universidade <b>#{university.name}</b>?" } do %>
+              <i class="fa fa-ban"></i>
+            <% end %>
           </td>
         </tr>
         <% end %>

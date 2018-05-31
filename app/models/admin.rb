@@ -12,5 +12,6 @@ class Admin < ActiveRecord::Base
  has_many :drivers
  has_many :fast_travels
  has_many :notifications
+ has_many :universities
 
 end

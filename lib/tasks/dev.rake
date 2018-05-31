@@ -34,7 +34,8 @@ namespace :dev do
       5.times do
         university = University.create!(
           name: Faker::Pokemon.name,
-          city: Faker::Pokemon.location
+          city: Faker::Pokemon.location,
+          admin: Admin.find(1)
         )
       end
   end
