@@ -22,7 +22,9 @@ namespace :dev do
         Admin.create!(
           email: 'admin@admin.com',
           password: "123456",
-          password_confirmation: "123456"
+          password_confirmation: "123456",
+          cnpj: "12.123.123/1234-12",
+          fantasy_name: "Empresa do Guilherme"
         )
     puts "ADMIN PADRÃO CADASTRADO COM SUCESSO!"
   end
