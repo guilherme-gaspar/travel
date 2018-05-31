@@ -11,6 +11,7 @@ class Backoffice::Admins::DriversController < Backoffice::AdminsController
 
   def create
     @driver = Driver.new(params_driver)
+    @driver.admin = current_admin
     if @driver.save
       redirect_to backoffice_admins_drivers_path, notice: "O motorista (#{@driver.name}) foi cadastrado com sucesso!"
     else
@@ -45,6 +46,6 @@ class Backoffice::Admins::DriversController < Backoffice::AdminsController
     end
 
     def params_driver
-      params.require(:driver).permit(:email, :password, :password_confirmation, :name)
+      params.require(:driver).permit(:email, :name)
     end
 end

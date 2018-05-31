@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'home#index'
+  
   get 'backoffice/admins/finances/search'
   get 'backoffice/users/finances/contract'
 

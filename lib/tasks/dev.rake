@@ -91,9 +91,8 @@ namespace :dev do
       5.times do
         driver = Driver.create!(
           email: Faker::Internet.email,
-          password: "123456",
-          password_confirmation: "123456",
-          name: Faker::Name.first_name
+          name: Faker::Name.first_name,
+          admin: Admin.find(1)
         )
       end
     puts "Motoristas falsos cadastrados com sucesso"

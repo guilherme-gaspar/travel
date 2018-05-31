@@ -9,6 +9,7 @@ class Admin < ActiveRecord::Base
 
  has_many :contracts
  has_many :users
+ has_many :drivers
  has_many :fast_travels
  has_many :notifications
 
