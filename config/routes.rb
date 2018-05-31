@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'home#index'
-  
+
   get 'backoffice/admins/finances/search'
   get 'backoffice/users/finances/contract'
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :backoffice do
     namespace :admins do
       resources :universities, except: [:show]
+      resources :cars, except: [:show]
       resources :routes, only: [:index]
       resources :profile
       resources :notifications

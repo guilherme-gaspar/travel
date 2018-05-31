@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capacity: 1
+  plate: MyString
+  admin_id: 
+  model: MyString
+  year: 1
+  mark: MyString
+
+two:
+  capacity: 1
+  plate: MyString
+  admin_id: 
+  model: MyString
+  year: 1
+  mark: MyString
