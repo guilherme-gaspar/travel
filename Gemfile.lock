@@ -262,6 +262,7 @@ DEPENDENCIES
   rack-cors
   rails (= 4.2.5)
   rails-assets-bootbox!
+  rails-assets-bootstrap!
   rails-assets-bootstrap-jasny!
   rails-assets-underscore!
   rails-erd

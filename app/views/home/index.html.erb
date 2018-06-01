@@ -1,65 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Travel | Manager</title>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <script src="//maps.google.com/maps/api/js?key=AIzaSyCjtUc0pMA4hyw77kNAcf5ZvJvO6wOkDOA"></script>
-  <script src='//cdn.jsdelivr.net/gmaps4rails/2.1.2/gmaps4rails.js'> </script>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'> </script>
-  <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-  <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
+<html lang="en">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <%= csrf_meta_tags %>
-</head>
+  <head>
 
-<body class="hold-transition skin-blue layout-top-nav" style="height: auto; min-height: 100%;">
-  <div class="wrapper">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <%= render partial: 'home/shared/header' %>
+    <title>Travel</title>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="min-height: 546px;">
-      <!-- Content Header (Page header) -->
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag 'bootstrap-for-home' %>
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="content-wrapper">
-          <div class="container">
-            <section class="content">
-              <!-- CONTEUDO -->
-                <div class="row">
-                  <div class="box-title col-md-4 col-md-offset-4">
-                    <h4 style="text-align: center">I am a danger callout!</h4>
-                    <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
-                      like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="col-md-4 col-md-offset-4">
-                    <button type="button" class="btn btn-block btn-primary btn-lg">Conheça nossa documentação</button>
-                    <!-- /.box -->
-                  </div>
-                <!-- /.col -->
-              </div>
-              <!-- FIM DO CONTEUDO -->
-            </section>
-            <!-- /.content -->
-          </div>
-          <!-- /.container -->
+    <!-- Custom fonts for this template -->
+    <%= stylesheet_link_tag 'font-awesome-for-home' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <%= stylesheet_link_tag 'home/home' %>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#">Travel Manager</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <%= link_to new_user_session_path, class: "nav-link js-scroll-trigger" do %>
+                <b>Passageiros</b>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_admin_session_path, class: "nav-link js-scroll-trigger" do %>
+                <b>Gestor da empresa</b>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team"><b>Documentação</b></a>
+            </li>
+          </ul>
         </div>
-      </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+      </div>
+    </nav>
 
-  </div><!-- ./wrapper -->
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Sistema de gerenciamento de viagens</div>
+          <div class="intro-heading text-uppercase">Travel manager</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Nossa documentação</a>
+        </div>
+      </div>
+    </header>
 
-  <%= javascript_include_tag 'application' %>
+    <!-- Bootstrap core JavaScript -->
+    <%= javascript_include_tag 'jquery-for-home' %>
+    <%= javascript_include_tag 'bootstrap.bundle-for-home' %>
+
   </body>
+
 </html>

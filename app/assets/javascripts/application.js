@@ -24,7 +24,6 @@
 //= require bootstrap-datepicker
 //= require jquery.slimscroll
 //= require app
-//= require_tree .
 
 
 
