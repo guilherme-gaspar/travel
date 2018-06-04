@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_one :week, dependent: :destroy
   belongs_to :admin
   belongs_to :university
+  has_many :passengers, dependent: :destroy # Primeiro o has many do through para depois has_many do join \/
+  has_many :routes, :through => :passengers
+
 
   accepts_nested_attributes_for :contract
   accepts_nested_attributes_for :week

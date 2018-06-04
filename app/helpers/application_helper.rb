@@ -19,7 +19,11 @@ module ApplicationHelper
       @weeks.where(frid: period).count
     elsif (Date.today.wday == 6)
       @weeks.where(satu: period).count
+    elsif (Date.today.wday == 0)
+      0
     end
   end
+
+  
 
 end

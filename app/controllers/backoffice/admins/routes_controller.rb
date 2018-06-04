@@ -31,6 +31,7 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
     @route = Route.new(params_route)
     @route.admin = current_admin
     if @route.save
+      create_passengers(@route)
       redirect_to backoffice_admins_routes_path, notice: "A rota para (#{@route.university.name}) foi cadastrado com sucesso!"
     else
       render :new
@@ -38,6 +39,50 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   end
 
   def edit
+  end
+
+  def create_passengers(route)
+    day_of_week = period_week
+    period_day = route.period_day
+    quantity_passengers = 0
+    capacity = route.car.capacity
+    qtt_users = User.where("allocated = 0").joins(:week).where(day_of_week, period_day).count
+
+    if (qtt_users < capacity)
+      quantity_passengers = qtt_users
+    elsif (qtt_users > capacity)
+      quantity_passengers = capacity
+    end
+
+    quantity_passengers.times do
+      user = User.where("allocated = 0").joins(:week).where(day_of_week, period_day).first
+      passenger = Passenger.create!(
+        route: route,
+        user: user
+      )
+      if user
+        user.allocated = 1
+        user.save
+      end
+    end
+  end
+
+  def period_week
+    if(Date.today.wday == 1)
+      "mond = ?"
+    elsif (Date.today.wday == 2)
+      "tues"
+    elsif (Date.today.wday == 3)
+      "wedn"
+    elsif (Date.today.wday == 4)
+      "thur"
+    elsif (Date.today.wday == 5)
+      "frid"
+    elsif (Date.today.wday == 6)
+      "satu"
+    elsif (Date.today.wday == 0)
+      0
+    end
   end
 
   def update
