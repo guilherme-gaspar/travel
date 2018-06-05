@@ -1,0 +1,2 @@
+class RouteMailer < ApplicationMailer
+end

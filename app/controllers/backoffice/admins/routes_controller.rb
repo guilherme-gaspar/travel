@@ -44,9 +44,10 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   def create_passengers(route)
     day_of_week = period_week
     period_day = route.period_day
+    university = University.find(route.university.id).name
     quantity_passengers = 0
     capacity = route.car.capacity
-    qtt_users = User.where("allocated = 0").joins(:week).where(day_of_week, period_day).count
+    qtt_users = User.where("allocated = 0").joins(:university).where(:universities => {:name => university}).joins(:week).where(day_of_week, period_day).count
 
     if (qtt_users < capacity)
       quantity_passengers = qtt_users
@@ -55,7 +56,7 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
     end
 
     quantity_passengers.times do
-      user = User.where("allocated = 0").joins(:week).where(day_of_week, period_day).first
+      user = User.where("allocated = 0").joins(:university).where(:universities => {:name => university}).joins(:week).where(day_of_week, period_day).first
       passenger = Passenger.create!(
         route: route,
         user: user

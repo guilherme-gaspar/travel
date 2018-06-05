@@ -72,6 +72,8 @@ group :development, :test do
   gem 'byebug'
   # Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
   gem 'rack-cors', require: 'rack/cors'
+  # Pry IRB
+  gem 'pry-rails'
 end
 
 group :development do
