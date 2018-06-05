@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603171856) do
+ActiveRecord::Schema.define(version: 20180605161954) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20180603171856) do
     t.string   "model"
     t.integer  "year"
     t.string   "mark"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "available",  default: 1
   end
 
   add_index "cars", ["admin_id"], name: "index_cars_on_admin_id"

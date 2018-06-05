@@ -12,6 +12,7 @@ namespace :dev do
     puts %x(rake dev:create_university)
     puts %x(rake dev:create_users)
     puts %x(rake dev:create_drivers)
+    puts %x(rake dev:create_cars)
     puts "Setup completado com sucesso"
   end
   ##########################################################
@@ -100,6 +101,24 @@ namespace :dev do
         )
       end
     puts "Motoristas falsos cadastrados com sucesso"
+  end
+  ##########################################################
+  ##########################################################
+  ##########################################################
+  desc "Cria carros falsos"
+  task create_cars: :environment do
+    puts "Cadastrando os Carros falsos"
+      5.times do
+        car = Car.create!(
+          capacity: [1,2,3,4,5,6,7,8,9,10].sample,
+          plate: [1234,1251,6135,1356,1356].sample,
+          model: Faker::OnePiece.character,
+          year: [2000,2001,2003,2005,2009].sample,
+          mark: Faker::Pokemon.name,
+          admin: Admin.find(1)
+        )
+      end
+    puts "Carros falsos cadastrados com sucesso"
   end
   ##########################################################
   ##########################################################

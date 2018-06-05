@@ -95,6 +95,10 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   end
 
   def destroy
+    @route.users.each do |user|
+      user.allocated = 0
+      user.save
+    end
     route_name = @route.university.name
     if @route.destroy
       redirect_to backoffice_admins_routes_path, notice: "A rota para (#{@route.university.name}) foi deletado com sucesso!"

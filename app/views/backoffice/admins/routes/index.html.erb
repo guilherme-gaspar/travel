@@ -191,7 +191,11 @@ directionsDisplay.setMap(handler.getMap());
       <div class="modal-body">
         <% if allocated("M").any? %>
           <% allocated("M").each do |allocated| %>
-            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></p></b>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></b>
+              <% if allocated.allocated == 1 %>
+                <span class="text-red"><%= "- (Usuário já alocado)" %></span>
+              <% end %>
+            </p>
           <% end %>
         <% else %>
             <p>Não tem usuários hoje no período da manhã.</p>
@@ -217,7 +221,11 @@ directionsDisplay.setMap(handler.getMap());
       <div class="modal-body">
         <% if allocated("T").count > 0 %>
           <% allocated("T").each do |allocated| %>
-            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></p></b>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></b>
+              <% if allocated.allocated == 1 %>
+                <span class="text-red"><%= "- (Usuário já alocado)" %></span>
+              <% end %>
+            </p>
           <% end %>
         <% else %>
             <p>Não tem usuários hoje no período da tarde.</p>
@@ -243,7 +251,11 @@ directionsDisplay.setMap(handler.getMap());
       <div class="modal-body">
         <% if allocated("N").count > 0 %>
           <% allocated("N").each do |allocated| %>
-            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></p></b>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></b>
+              <% if allocated.allocated == 1 %>
+                <span class="text-red"><%= "- (Usuário já alocado)" %></span>
+              <% end %>
+            </p>
           <% end %>
         <% else %>
             <p>Não tem usuários hoje no período da noite.</p>
