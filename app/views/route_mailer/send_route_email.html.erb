@@ -1,0 +1,38 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <i class="fa fa-map"></i>
+
+    <center>
+      <h1 class="box-title">Rota para <b><%= @driver.name %></b></h1>
+    </center>
+  </div>
+  <div class="box-body pad table-responsive">
+    <p>Segue em detalhes informações sobre sua rota de hoje.<br /> Período da: <code><%= if @route.period_day == "M" then "Manha" elsif @route.period_day == "T" then "Tarde" else "N" end %></code></p>
+  </div>
+  <center>
+    <div class="box-body">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Endereço</th>
+          </tr>
+          <% @route.users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.address %></td>
+          </tr>
+          <% end %>
+      </tbody></table>
+    </div>
+  </center>
+
+  <br />
+  <!-- /.box -->
+  <center>
+  <button type="button" class="btn btn-primary">Clique aqui para visualizar sua trajetória</button>
+  </center>
+
+</div>
