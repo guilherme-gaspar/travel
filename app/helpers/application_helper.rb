@@ -24,6 +24,25 @@ module ApplicationHelper
     end
   end
 
-  
+  def allocated(period)
+    # .where("allocated = ?", 1)
+    if(Date.today.wday == 1)
+      User.joins(:week).where(:weeks => {mond: period})
+    elsif (Date.today.wday == 2)
+      User.joins(:week).where(:weeks => {tues: period})
+    elsif (Date.today.wday == 3)
+      User.joins(:week).where(:weeks => {wedn: period})
+    elsif (Date.today.wday == 4)
+      User.joins(:week).where(:weeks => {thur: period})
+    elsif (Date.today.wday == 5)
+      User.joins(:week).where(:weeks => {frid: period})
+    elsif (Date.today.wday == 6)
+      User.joins(:week).where(:weeks => {satu: period})
+    elsif (Date.today.wday == 0)
+      0
+    end
+  end
+
+
 
 end

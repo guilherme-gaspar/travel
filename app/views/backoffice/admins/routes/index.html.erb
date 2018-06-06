@@ -7,7 +7,13 @@
       <div class="info-box-content">
         <span class="info-box-text">Manha</span>
         <span class="info-box-number"><%= period_day("M") %></span>
-        <span class="text-red"><p></p>Não alocado: <%= @capacity-period_day("M") %></span>
+        <span>
+          <a href="#"  data-toggle="modal" data-target="#modal-m">
+            <p style="margin-top: 5px;">
+              <i class="fa fa-users text-aqua"></i> Saiba mais
+            </p>
+          </a>
+        </span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -23,6 +29,13 @@
       <div class="info-box-content">
         <span class="info-box-text">Tarde</span>
         <span class="info-box-number"><%= period_day("T") %></span>
+        <span>
+          <a href="#"  data-toggle="modal" data-target="#modal-t">
+            <p style="margin-top: 5px;">
+              <i class="fa fa-users text-aqua"></i> Saiba mais
+            </p>
+          </a>
+        </span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -36,6 +49,13 @@
       <div class="info-box-content">
         <span class="info-box-text">Noite</span>
         <span class="info-box-number"><%= period_day("N") %></span>
+        <span>
+          <a href="#"  data-toggle="modal" data-target="#modal-n">
+            <p style="margin-top: 5px;">
+              <i class="fa fa-users text-aqua"></i> Saiba mais
+            </p>
+          </a>
+        </span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -157,3 +177,83 @@ handler.buildMap({ internal: {id: 'map'}}, function(){
 directionsDisplay.setMap(handler.getMap());
 });
 <% end %>
+
+<!-- Modal para os periodos -->
+<!-- Manha -->
+<div class="modal fade" id="modal-m" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lista de usuários do período da: <b>Manhã</b></h4>
+      </div>
+      <div class="modal-body">
+        <% if allocated("M").any? %>
+          <% allocated("M").each do |allocated| %>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></p></b>
+          <% end %>
+        <% else %>
+            <p>Não tem usuários hoje no período da manhã.</p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- Tarde -->
+<div class="modal fade" id="modal-t" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lista de usuários do período da: <b>Tarde</b></h4>
+      </div>
+      <div class="modal-body">
+        <% if allocated("T").count > 0 %>
+          <% allocated("T").each do |allocated| %>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></p></b>
+          <% end %>
+        <% else %>
+            <p>Não tem usuários hoje no período da tarde.</p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- Noite -->
+<div class="modal fade" id="modal-n" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lista de usuários do período da: <b>Noite</b></h4>
+      </div>
+      <div class="modal-body">
+        <% if allocated("N").count > 0 %>
+          <% allocated("N").each do |allocated| %>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></p></b>
+          <% end %>
+        <% else %>
+            <p>Não tem usuários hoje no período da noite.</p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
