@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605161954) do
+ActiveRecord::Schema.define(version: 20180605193841) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -74,8 +74,9 @@ ActiveRecord::Schema.define(version: 20180605161954) do
     t.string   "name"
     t.integer  "admin_id"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "available",  default: 1
   end
 
   add_index "drivers", ["admin_id"], name: "index_drivers_on_admin_id"

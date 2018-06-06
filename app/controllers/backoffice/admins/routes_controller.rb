@@ -30,6 +30,15 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   def create
     @route = Route.new(params_route)
     @route.admin = current_admin
+
+    car = @route.car
+    car.available = 0
+    car.save
+
+    driver = @route.driver
+    driver.available = 0
+    driver.save
+
     if @route.save
       create_passengers(@route)
       redirect_to backoffice_admins_routes_path, notice: "A rota para (#{@route.university.name}) foi cadastrado com sucesso!"
@@ -95,10 +104,20 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   end
 
   def destroy
+
     @route.users.each do |user|
       user.allocated = 0
       user.save
     end
+
+    car = @route.car
+    car.available = 1
+    car.save
+
+    driver = @route.driver
+    driver.available = 1
+    driver.save
+
     route_name = @route.university.name
     if @route.destroy
       redirect_to backoffice_admins_routes_path, notice: "A rota para (#{@route.university.name}) foi deletado com sucesso!"
