@@ -65,22 +65,11 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Dados analiticos do site</h3>
+              <h3 class="box-title">Dados de criação dos usuários</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-wrench"></i></button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
@@ -88,6 +77,56 @@
             <div class="box-body">
               <div class="row">
                 <%= line_chart User.group_by_day(:created_at).count %>
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Dados de usuários por cidades</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <%= bar_chart User.group(:city).where("admin_id = ?", current_admin.id).count %>
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      <!-- /.row -->
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Dados de usuários por ruas</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <%= pie_chart User.group(:street).count %>
               </div>
               <!-- /.row -->
             </div>

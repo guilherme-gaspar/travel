@@ -19,7 +19,7 @@ RSpec.feature "Homes", :type => :feature do
 
   scenario 'Tenha um titulo da aplicação' do
     visit('/')
-    expect(page).to have_content('Travel Manager')
+    expect(page).to have_content('Easy Routes')
   end
 
 

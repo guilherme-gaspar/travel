@@ -79,7 +79,7 @@ class Backoffice::Admins::UsersController < Backoffice::AdminsController
                                      :street, :city, :number, :state, :phone, :university_id, contract_attributes: [:due_date, :number_installments, :value], week_attributes: [:mond, :tues, :wedn, :thur, :frid, :satu, :user_id] )
       else # Aqui ele estará sendo atualizado, se não estiver em branco...
         params.require(:user).permit(:id, :email, :password, :password_confirmation, :name,
-                                     :street, :city, :number, :state, :phone, :university_id, contract_attributes: [:due_date, :number_installments, :value], week_attributes: [:mond, :tues, :wedn, :thur, :frid, :satu, :user_id] )
+                                     :street, :city, :number, :state, :phone, :university_id, contract_attributes: [:due_date, :number_installments, :value, :id], week_attributes: [:id, :mond, :tues, :wedn, :thur, :frid, :satu, :user_id] )
       end
 
 
