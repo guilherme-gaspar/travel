@@ -58,7 +58,8 @@ namespace :dev do
           phone: Faker::PhoneNumber.phone_number,
           street: "Avenida paraguassu",
           university: University.find([1,2,3,4,5].sample),
-          admin: Admin.find(1)
+          admin: Admin.find(1),
+          created_at: Date.today-[1,2,3,4,5].sample
         )
         contract = Contract.create!(
           due_date: [10,20,30],

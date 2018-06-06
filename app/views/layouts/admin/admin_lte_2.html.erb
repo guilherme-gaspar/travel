@@ -19,6 +19,8 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -44,7 +46,7 @@
               <i class="fa fa-dashboard"></i> Dashboard
             <% end %>
           </li>
-          <li class="active">Aqui</li>
+          <li class="active">Página Atual</li>
         </ol>
       </section>
 
@@ -82,7 +84,7 @@
 
   </div><!-- ./wrapper -->
 
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+
   </body>
 </html>
