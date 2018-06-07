@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -78,9 +81,10 @@ group :development, :test do
   gem 'rack-cors', require: 'rack/cors'
   # Pry IRB
   gem 'pry-rails'
-  # Rspec
-  gem 'rspec-rails', '~> 3.6'
+  # Capybara
+  gem 'capybara'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -91,4 +95,6 @@ group :development do
   gem 'faker'
   # Gem ERD para diagrama ER
   gem 'rails-erd'
+  # Binario do RSPEC
+  gem 'spring-commands-rspec'
 end
