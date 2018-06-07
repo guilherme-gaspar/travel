@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605193841) do
+ActiveRecord::Schema.define(version: 20180607191439) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -160,9 +160,15 @@ ActiveRecord::Schema.define(version: 20180605193841) do
   create_table "universities", force: :cascade do |t|
     t.string   "name"
     t.string   "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "admin_id"
+    t.string   "street"
+    t.string   "number"
+    t.string   "state"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "number_contract"
   end
 
   add_index "universities", ["admin_id"], name: "index_universities_on_admin_id"

@@ -8,33 +8,52 @@
 <% end %>
 
 <%= form_for([:backoffice, :admins, @university]) do |f| %>
-<div class="box box-info">
+<div class="nav-tabs-custom">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab_1" data-toggle="tab">Dados pessoais</a></li>
+    <li><a href="#tab_2" data-toggle="tab">Endereço</a></li>
+    <li class="pull-right"><button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Salvar</button></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab_1">
+      <div class="form-group col-md-6">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control", placeholder: "Nome da universidade" %>
+      </div>
 
-<div class="box-header with-border">
-  <h3 class="box-title"><%= action_message %></h3>
-</div>
-<!-- /.box-header -->
-<!-- form start -->
-
-  <div class="box-body">
-
-    <div class="form-group col-md-6">
-      <%= f.label :name %>
-      <%= f.text_field :name, class:"form-control", placeholder: "Nome da universidade" %>
+      <div class="form-group col-md-6">
+        <%= f.label :number_contract %>
+        <%= f.text_field :number_contract, class:"form-control", placeholder: "Número do contrato" %>
+      </div>
+      &nbsp;
     </div>
+    <!-- /.tab-pane -->
+    <div class="tab-pane" id="tab_2">
+      <div class="form-group col-md-6">
+        <%= f.label :street %>
+        <%= f.text_field :street, class:"form-control", placeholder: "Rua/Av" %>
+      </div>
 
-    <div class="form-group col-md-6">
-      <%= f.label :city %>
-      <%= f.text_field :city, class:"form-control", placeholder: "Cidade da universidade" %>
+      <div class="form-group col-md-6">
+        <%= f.label :city %>
+        <%= f.text_field :city, class:"form-control", placeholder: "Cidade" %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= f.label :number %>
+        <%= f.text_field :number, class:"form-control", placeholder: "Número" %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= f.label :state %>
+        <%= f.text_field :state, class:"form-control", :data => {:mask=> 'aa'}, placeholder: "Estado" %>
+      </div>
+      &nbsp;
     </div>
-
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-primary pull-right">Salvar</button>
-    </div>
-
   </div>
-
-  <!-- /.box-body -->
 </div>
+
+
+
 
 <% end %>

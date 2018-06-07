@@ -16,15 +16,16 @@
           <th style="width: 10px">#</th>
           <th>Placa</th>
           <th>Modelo</th>
-          <th style="width: 150px"></th>
+          <th>Capacidade</th>
+          <th style="width: 100px"></th>
         </tr>
         <% @cars.each do |car| %>
         <tr>
           <td><%= car.id %></td>
           <td><%= car.plate %></td>
           <td><%= car.model %></td>
+          <td><%= car.capacity %></td>
           <td>
-            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
             <%= link_to edit_backoffice_admins_car_path(car), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>

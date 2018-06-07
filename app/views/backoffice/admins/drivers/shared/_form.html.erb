@@ -8,42 +8,25 @@
 <% end %>
 
 <%= form_for([:backoffice, :admins, @driver]) do |f| %>
-<div class="box box-info">
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab_1" data-toggle="tab">Dados do motorista</a></li>
+      <li class="pull-right"><button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Salvar</button></a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_1">
+        <div class="form-group col-md-6">
+          <%= f.label :name %>
+          <%= f.text_field :name, class:"form-control", placeholder: "Capacidade do veiculo" %>
+        </div>
 
-<div class="box-header with-border">
-  <h3 class="box-title"><%= action_message %></h3>
-</div>
-<!-- /.box-header -->
-<!-- form start -->
-
-  <div class="box-body">
-
-    <div class="form-group col-md-6">
-      <%= f.label :name %>
-      <%= f.text_field :name, class:"form-control", placeholder: "Nome do usuário" %>
+        <div class="form-group col-md-6">
+          <%= f.label :email %>
+          <%= f.text_field :email, class:"form-control", placeholder: "Placa do veiculo" %>
+        </div>
+        &nbsp;
+      </div>
     </div>
-
-    <div class="form-group col-md-6">
-      <%= f.label :email %>
-      <%= f.text_field :email, class:"form-control", placeholder: "Email do usuário" %>
-    </div>
-
-
   </div>
-
-  <!-- /.box-body -->
-</div>
-
-<div class="box box-info">
-<div class="box-header with-border">
-  <h3 class="box-title">Exemplo separado</h3>
-</div>
-<div class="box-body">
-  <div class="col-md-12">
-    <button type="submit" class="btn btn-primary pull-right">Salvar</button>
-  </div>
-</div>
-</div>
-
 
 <% end %>

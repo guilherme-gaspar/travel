@@ -46,6 +46,6 @@ class Backoffice::Admins::UniversitiesController < Backoffice::AdminsController
     end
 
     def params_university
-      params.require(:university).permit(:name, :city)
+      params.require(:university).permit(:name, :city, :number_contract, :street, :number, :state)
     end
 end

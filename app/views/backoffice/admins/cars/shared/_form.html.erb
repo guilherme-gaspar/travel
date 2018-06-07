@@ -8,48 +8,39 @@
 <% end %>
 
 <%= form_for([:backoffice, :admins, @car]) do |f| %>
-<div class="box box-info">
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab_1" data-toggle="tab">Dados do carro</a></li>
+      <li class="pull-right"><button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Salvar</button></a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_1">
+        <div class="form-group col-md-6">
+          <%= f.label :capacity %>
+          <%= f.text_field :capacity, class:"form-control", placeholder: "Capacidade do veiculo" %>
+        </div>
 
-<div class="box-header with-border">
-  <h3 class="box-title"><%= action_message %></h3>
-</div>
-<!-- /.box-header -->
-<!-- form start -->
+        <div class="form-group col-md-6">
+          <%= f.label :plate %>
+          <%= f.text_field :plate, class:"form-control", placeholder: "Placa do veiculo", :data => { :mask => '***/****' } %>
+        </div>
 
-  <div class="box-body">
+        <div class="form-group col-md-4">
+          <%= f.label :model %>
+          <%= f.text_field :model, class:"form-control", placeholder: "Modelo do veiculo" %>
+        </div>
 
-    <div class="form-group col-md-6">
-      <%= f.label :capacity %>
-      <%= f.text_field :capacity, class:"form-control", placeholder: "Capacidade do veiculo" %>
+        <div class="form-group col-md-4">
+          <%= f.label :year %>
+          <%= f.text_field :year, class:"form-control", placeholder: "Ano do veiculo", :data => { :mask => '9999' } %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= f.label :mark %>
+          <%= f.text_field :mark, class:"form-control", placeholder: "Marca do veiculo" %>
+        </div>
+        &nbsp;
+      </div>
     </div>
-
-    <div class="form-group col-md-6">
-      <%= f.label :plate %>
-      <%= f.text_field :plate, class:"form-control", placeholder: "Placa do veiculo" %>
-    </div>
-
-    <div class="form-group col-md-4">
-      <%= f.label :model %>
-      <%= f.text_field :model, class:"form-control", placeholder: "Modelo do veiculo" %>
-    </div>
-
-    <div class="form-group col-md-4">
-      <%= f.label :year %>
-      <%= f.text_field :year, class:"form-control", placeholder: "Ano do veiculo" %>
-    </div>
-
-    <div class="form-group col-md-4">
-      <%= f.label :mark %>
-      <%= f.text_field :mark, class:"form-control", placeholder: "Marca do veiculo" %>
-    </div>
-
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-primary pull-right">Salvar</button>
-    </div>
-
   </div>
-
-  <!-- /.box-body -->
-</div>
-
 <% end %>

@@ -15,16 +15,15 @@
         <tr>
           <th style="width: 10px">#</th>
           <th>Nome</th>
-          <th>Cidade</th>
-          <th style="width: 150px"></th>
+          <th>Endereço</th>
+          <th style="width: 100px"></th>
         </tr>
         <% @universities.each do |university| %>
         <tr>
           <td><%= university.id %></td>
           <td><%= university.name %></td>
-          <td><%= university.city %></td>
+          <td><%= university.address_view %></td>
           <td>
-            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
             <%= link_to edit_backoffice_admins_university_path(university), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>

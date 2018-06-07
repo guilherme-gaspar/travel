@@ -16,7 +16,7 @@
           <th style="width: 10px">#</th>
           <th>Nome</th>
           <th>Email</th>
-          <th style="width: 150px"></th>
+          <th style="width: 100px"></th>
         </tr>
         <% @drivers.each do |driver| %>
         <tr>
@@ -24,7 +24,6 @@
           <td><%= driver.name %></td>
           <td><%= driver.email %></td>
           <td>
-            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
             <%= link_to edit_backoffice_admins_driver_path(driver), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>
