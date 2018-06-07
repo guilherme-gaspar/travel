@@ -15,16 +15,19 @@
         <tr>
           <th style="width: 10px">#</th>
           <th>Nome</th>
-          <th>Email</th>
-          <th style="width: 150px"></th>
+          <th>Telefone</th>
+          <th>E-mail</th>
+          <th>Universidade</th>
+          <th style="width: 100px"></th>
         </tr>
         <% @users.each do |user| %>
         <tr>
           <td><%= user.id %></td>
           <td><%= user.name %></td>
+          <td><%= user.phone %></td>
           <td><%= user.email %></td>
+          <td><%= user.university.name %></td>
           <td>
-            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
             <%= link_to edit_backoffice_admins_user_path(user), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>

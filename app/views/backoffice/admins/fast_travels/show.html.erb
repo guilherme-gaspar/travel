@@ -1,0 +1,85 @@
+
+    <!-- Main content -->
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-automobile"></i> <%= current_admin.fantasy_name %>
+            <small class="pull-right"><%= @fast_travel.created_at.strftime("%d/%m/%Y") %></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          De
+          <address>
+            <strong><%= current_admin.fantasy_name %></strong><br>
+            <%= "#{current_admin.street} - #{current_admin.number} #{current_admin.city}/#{current_admin.state}" %><br>
+            Telefone: <%= current_admin.phone %><br>
+            Email: <%= current_admin.email %>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          Para
+          <address>
+            <strong><%= @fast_travel.name %></strong><br>
+            Telefone: <%= @fast_travel.phone %><br>
+            Email: <%= @fast_travel.email %>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <b>Contrato de número #<%= @fast_travel.id %></b><br>
+          <br>
+          <b>Quantidade de parcelas: 1<br>
+          <b>Dia de vencimento:</b> <%= @fast_travel.due_date.strftime("%d/%m/%Y") %><br>
+          <b>Recebedor:</b> <%= current_admin.fantasy_name %>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Código</th>
+              <th>Data de vencimento</th>
+              <th>Valor</th>
+
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @fast_travel.id %></td>
+                <td><%= @fast_travel.due_date.strftime("%d/%m/%Y") %></td>
+                <td><%= @fast_travel.price %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+            <%= link_to backoffice_users_finances_path, class: "btn btn-success pull-right" do %>
+              <i class="fa fa-credit-card"></i> Enviar por email
+            <% end%>
+          </button>
+          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" onclick="window.print();">
+            <i class="fa fa-download"></i> Gerar PDF
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>

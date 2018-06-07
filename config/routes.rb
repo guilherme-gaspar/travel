@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :profile
       resources :notifications
       resources :settings
-      resources :fast_travels, except: [:show]
+      resources :fast_travels
       resources :drivers, except: [:show]
       resources :finances, except: [:show]
       resources :reports, except: [:show]

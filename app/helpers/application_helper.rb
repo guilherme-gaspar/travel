@@ -43,6 +43,34 @@ module ApplicationHelper
     end
   end
 
+  def name_controller_described(controller)
+    if controller == "backoffice/admins/users"
+      "- Painel administrativo de usuários"
+    elsif controller == "backoffice/admins/dashboard"
+      "- Dashboard"
+    elsif controller == "backoffice/admins/fast_travels"
+      "- Painel administrativo de viagens rápidas"
+    elsif controller == "backoffice/admins/routes"
+      "- Painel administrativo de rotas universitárias"
+    elsif controller == "backoffice/admins/universities"
+      "- Painel administrativo de universidades"
+    elsif controller == "backoffice/admins/cars"
+      "- Painel administrativo de carros"
+    elsif controller == "backoffice/admins/drivers"
+      "- Painel administrativo de motoristas"
+    elsif controller == "backoffice/admins/finances"
+      "- Painel administrativo do financeiro"
+    elsif controller == "backoffice/admins/notifications"
+      "- Painel administrativo de notificações"
+    elsif controller == "backoffice/admins/profile"
+      "- Configuração do perfil do gestor"
+    elsif controller == "backoffice/admins/settings"
+      "- Configurações do sistema"
+    elsif controller == "backoffice/admins/reports"
+      "- Painel administrativo de relatórios"
+    end
+  end
+
 
 
 end

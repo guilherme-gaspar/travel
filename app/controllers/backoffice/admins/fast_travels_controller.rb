@@ -1,5 +1,5 @@
 class Backoffice::Admins::FastTravelsController < Backoffice::AdminsController
-  before_action :set_fast_travel, only: [:edit, :update, :destroy]
+  before_action :set_fast_travel, only: [:edit, :update, :destroy, :show]
 
   def index
     @fast_travels = FastTravel.all.where(["admin_id = ?", current_admin.id]).page(params[:page]).per(7)
@@ -7,6 +7,10 @@ class Backoffice::Admins::FastTravelsController < Backoffice::AdminsController
 
   def new
     @fast_travel = FastTravel.new
+  end
+
+  def show
+    @fast_travel
   end
 
   def create

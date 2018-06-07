@@ -78,6 +78,8 @@ group :development, :test do
   gem 'rack-cors', require: 'rack/cors'
   # Pry IRB
   gem 'pry-rails'
+  # Rspec
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do

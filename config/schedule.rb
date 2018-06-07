@@ -14,10 +14,10 @@ every 1.day, at: '00:00 am' do
   runner "User.where(allocated: 1).update_all(allocated: 0)"
 end
 every 1.day, at: '00:00 am' do
-  runner "Car.where(allocated: 0).update_all(allocated: 1)"
+  runner "Car.where(available: 0).update_all(available: 1)"
 end
 every 1.day, at: '00:00 am' do
-  runner "Driver.where(allocated: 0).update_all(allocated: 1)"
+  runner "Driver.where(available: 0).update_all(available: 1)"
 end
 every 1.day, at: '00:00 am' do
   runner "Route.destroy_all"

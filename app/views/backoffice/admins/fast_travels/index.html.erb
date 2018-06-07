@@ -30,18 +30,17 @@
           <td><%= ft.inicial_tour %></td>
           <td><%= ft.final_tour %></td>
           <td><%= ft.price %></td>
-          <td style="text-align: center"><span class="badge bg-red"><%= ft.due_date %></span></td>
+          <td><span class="badge bg-red"><%= ft.due_date %></span></td>
           <td>
-            <button type="button" class="btn btn-primary"><i class="fa fa-file-text-o"></i></button>
+            <%= link_to backoffice_admins_fast_travel_path(ft), class: "btn btn-primary", title: "Contrato" do %>
+              <i class="fa fa-file-text-o"></i>
+            <% end %>
             <%= link_to edit_backoffice_admins_fast_travel_path(ft), class: "btn btn-info", title: "Editar" do %>
               <i class="fa fa-edit"></i>
             <% end %>
             <%= link_to backoffice_admins_fast_travel_path(ft), method: :delete, title: "Remover", class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir a viagem rápida do(a) <b>#{ft.name}</b>?" } do %>
               <i class="fa fa-ban"></i>
             <% end %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-              Launch demo modal
-            </button>
           </td>
 
         </tr>
