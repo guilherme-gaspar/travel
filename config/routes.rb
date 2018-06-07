@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'backoffice/admins/finances/search'
+  get 'backoffice/admins/users/search_user'
   get 'backoffice/users/finances/contract'
+
 
 
   devise_for :users, controllers: { sessions: 'users/sessions' }

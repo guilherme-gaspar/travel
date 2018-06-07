@@ -20,106 +20,117 @@
   <div class="tab-content">
     <div class="tab-pane active" id="tab_1">
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :name %>
         <%= f.text_field :name, class:"form-control", placeholder: "Nome completo do usuário" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :email %>
         <%= f.text_field :email, class:"form-control", placeholder: "Email do usuário" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-4">
         <%= f.label :password %>
         <%= f.text_field :password, class:"form-control", placeholder: "Password do usuário" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-4">
         <%= f.label :password_confirmation %>
         <%= f.text_field :password_confirmation, class:"form-control", placeholder: "Confirmação de senha" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-4">
         <%= f.label :phone %>
         <%= f.text_field :phone, class:"form-control", placeholder: "Telefone", :data => { :mask => '(99) 99999-9999' } %>
       </div>
 
+      &nbsp;
+
+
     </div>
     <!-- /.tab-pane -->
     <div class="tab-pane" id="tab_2">
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :street %>
         <%= f.text_field :street, class:"form-control", placeholder: "Rua/Av" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :city %>
         <%= f.text_field :city, class:"form-control", placeholder: "Cidade" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :number %>
         <%= f.text_field :number, class:"form-control", placeholder: "Número" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :state %>
         <%= f.text_field :state, class:"form-control", :data => {:mask=> 'aa'}, placeholder: "Estado" %>
       </div>
+
+      &nbsp;
 
     </div>
     <!-- /.tab-pane -->
     <div class="tab-pane" id="tab_3">
       <%= f.fields_for :contract do |ff| %>
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
           <%= ff.label :due_date %>
           <%= ff.text_field :due_date, class:"form-control", placeholder: "Data de vencimento do contrato" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
           <%= ff.label :value %>
           <%= ff.text_field :value, class:"form-control", placeholder: "Valor total" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
           <%= ff.label :number_installments %>
           <%= ff.text_field :number_installments, class:"form-control", :data => {:mask=> '99'}, placeholder: "Número de parcelas" %>
         </div>
+
+        &nbsp;
+
       <% end %>
     </div>
     <div class="tab-pane" id="tab_4">
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.label :university %>
         <%= f.select(:university_id, University.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
       </div>
 
       <%= f.fields_for :week do |week| %>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <%= week.label :mond %>
           <%= week.select :mond, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.mond), { include_blank: true }, { :class => "form-control" } %>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <%= week.label :tues %>
           <%= week.select :tues, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.tues), { include_blank: true }, { :class => "form-control" } %>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <%= week.label :wedn %>
           <%= week.select :wedn, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.wedn), { include_blank: true }, { :class => "form-control" } %>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <%= week.label :thur %>
           <%= week.select :thur, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.thur), { include_blank: true }, { :class => "form-control" } %>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <%= week.label :frid %>
           <%= week.select :frid, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.frid), { include_blank: true }, { :class => "form-control" } %>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <%= week.label :satu %>
           <%= week.select :satu, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.satu), { include_blank: true }, { :class => "form-control" } %>
         </div>
+
+        &nbsp;
+
       <% end %>
     </div>
     <!-- /.tab-pane -->

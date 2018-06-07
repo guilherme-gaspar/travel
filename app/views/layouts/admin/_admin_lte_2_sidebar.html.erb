@@ -18,14 +18,16 @@
     </div>
 
     <!-- search form (Optional) -->
-    <form action="#" method="get" class="sidebar-form">
+    <%= form_tag backoffice_admins_users_search_user_path, method: :get, class: "sidebar-form" do %>
       <div class="input-group">
-        <input type="text" name="q" class="form-control" placeholder="Pesquisar..."/>
+        <%= text_field_tag "q", nil, placeholder: "Pesquisar por usuário...", class: "form-control" %>
         <span class="input-group-btn">
-          <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+          <%= button_tag(nil, class: "btn btn-flat") do %>
+            <i class="fa fa-search"></i>
+          <% end %>
         </span>
       </div>
-    </form>
+    <% end %>
     <!-- /.search form -->
 
     <!-- Sidebar Menu -->
