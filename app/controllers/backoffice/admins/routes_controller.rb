@@ -58,9 +58,9 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
     capacity = route.car.capacity
     qtt_users = User.where("allocated = 0").joins(:university).where(:universities => {:name => university}).joins(:week).where(day_of_week, period_day).count
 
-    if (qtt_users < capacity)
+    if (qtt_users <= capacity)
       quantity_passengers = qtt_users
-    elsif (qtt_users > capacity)
+    else
       quantity_passengers = capacity
     end
 
