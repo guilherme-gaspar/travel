@@ -70,6 +70,9 @@ module ApplicationHelper
       "- Painel administrativo de relatórios"
     end
   end
+  def select_settings
+    Setting.where("admin_id = ?", current_admin.id).pluck(:origin)
+  end
 
 
 

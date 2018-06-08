@@ -17,7 +17,7 @@ class Backoffice::Admins::SettingsController < Backoffice::AdminsController
       @setting = Setting.find_or_create_by(admin: current_admin)
     end
     def params_setting
-      params.require(:setting).permit(:id, :token, :days_for_payment)
+      params.require(:setting).permit(:id, :token, :days_for_payment, :origin)
     end
 
 end

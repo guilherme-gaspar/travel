@@ -6,78 +6,69 @@
     <% end %></b>
   </div>
 <% end %>
-
-<div class="box box-info">
-
-<div class="box-header with-border">
-  <h3 class="box-title">Editando o perfil da empresa</h3>
-</div>
-<!-- /.box-header -->
-<!-- form start -->
-
-
-
 <%= form_for(@admin, url: backoffice_admins_profile_path(current_admin.id), html: { multipart: true }) do |f| %>
-  <div class="box-body">
+<div class="nav-tabs-custom">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab_1" data-toggle="tab">Dados da empresa</a></li>
+    <li><a href="#tab_2" data-toggle="tab">Endereço</a></li>
+    <li class="pull-right"><button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Salvar</button></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab_1">
 
-    <div class="form-group col-md-4">
-      <%= f.label :fantasy_name %>
-      <%= f.text_field :fantasy_name, class:"form-control", placeholder: "Nome fantasia", :required => true %>
+      <div class="form-group col-md-4">
+        <%= f.label :fantasy_name %>
+        <%= f.text_field :fantasy_name, class:"form-control", placeholder: "Nome fantasia", :required => true %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= f.label :social_name %>
+        <%= f.text_field :social_name, class:"form-control", placeholder: "Razão social" %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= f.label :cnpj %>
+        <%= f.text_field :cnpj, class:"form-control", placeholder: "CNPJ da empresa", :data => { :mask => '99.999.999/9999-99' } %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= f.label :email %>
+        <%= f.text_field :email, class:"form-control", placeholder: "Email da empresa" %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class:"form-control", placeholder: "Telefone da empresa", :data => { :mask => '(99) 99999-9999' } %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar, class: "btn btn-default btn-file" %>
+      </div>
+
+      &nbsp;
     </div>
-
-    <div class="form-group col-md-4">
-      <%= f.label :social_name %>
-      <%= f.text_field :social_name, class:"form-control", placeholder: "Razão social" %>
+    <div class="tab-pane" id="tab_2">
+      <div class="form-group col-md-6">
+        <%= f.label :street %>
+        <%= f.text_field :street, class:"form-control", placeholder: "Rua/Av" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :city %>
+        <%= f.text_field :city, class:"form-control", placeholder: "Cidade" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :number %>
+        <%= f.text_field :number, class:"form-control", placeholder: "Número" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :state %>
+        <%= f.text_field :state, class:"form-control", placeholder: "Estado" %>
+      </div>
+      &nbsp;
     </div>
-
-    <div class="form-group col-md-4">
-      <%= f.label :cnpj %>
-      <%= f.text_field :cnpj, class:"form-control", placeholder: "CNPJ da empresa" %>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= f.label :email %>
-      <%= f.text_field :email, class:"form-control", placeholder: "Email da empresa" %>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= f.label :phone %>
-      <%= f.text_field :phone, class:"form-control", placeholder: "Telefone da empresa" %>
-    </div>
-
-    <div class="form-group col-md-5">
-      <%= f.label :street %>
-      <%= f.text_field :street, class:"form-control", placeholder: "Rua/Av" %>
-    </div>
-    <div class="form-group col-md-3">
-      <%= f.label :city %>
-      <%= f.text_field :city, class:"form-control", placeholder: "Cidade" %>
-    </div>
-    <div class="form-group col-md-2">
-      <%= f.label :number %>
-      <%= f.text_field :number, class:"form-control", placeholder: "Número" %>
-    </div>
-    <div class="form-group col-md-2">
-      <%= f.label :state %>
-      <%= f.text_field :state, class:"form-control", placeholder: "Estado" %>
-    </div>
-
-    <div class="form-group col-md-12">
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar, class: "btn btn-default btn-file" %>
-    </div>
-
-
-
-
-
-    <div class="col-md-12">
-    <button type="submit" class="btn btn-primary pull-right">Salvar</button>
-    </div>
-
   </div>
-
-  <!-- /.box-body -->
+</div>
 <% end %>
 
 </div>

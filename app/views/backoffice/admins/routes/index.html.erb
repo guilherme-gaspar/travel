@@ -84,7 +84,7 @@
           <th>Origim</th>
           <th>Carro</th>
           <th>Periodo</th>
-          <th style="width: 200px"></th>
+          <th style="width: 150px"></th>
         </tr>
         <% @routes.each do |route| %>
         <tr>
@@ -104,7 +104,6 @@
           </td>
           <td>
             <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-map-marker"></i></button>
-            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
             <%= link_to edit_backoffice_admins_route_path(route), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>

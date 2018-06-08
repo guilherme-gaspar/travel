@@ -3,14 +3,13 @@ namespace :dev do
   desc "Setup development"
   task setup: :environment do
     puts "Executando o setup para desenvolvimento..."
-
     puts "APAGANDO BD... #{%x(rake db:drop)}"
     puts "CRIANDO BD... #{%x(rake db:create)}"
     puts %x(rake db:migrate)
-    # puts %x(rake db:seed)
     puts %x(rake dev:create_admin)
-    puts %x(rake dev:create_university)
+    puts %x(rake dev:create_universities)
     puts %x(rake dev:create_users)
+    puts %x(rake dev:create_fast_travels)
     puts %x(rake dev:create_drivers)
     puts %x(rake dev:create_cars)
     puts "Setup completado com sucesso"
@@ -32,12 +31,16 @@ namespace :dev do
   ##########################################################
   ##########################################################
   desc "Cria universidades falsas"
-  task create_university: :environment do
+  task create_universities: :environment do
     puts "Cadastrando as universidades"
       5.times do
         university = University.create!(
           name: Faker::Pokemon.name,
-          city: Faker::Pokemon.location,
+          city: Faker::Address.city,
+          street: Faker::Pokemon.location,
+          number: Faker::Address.building_number,
+          number_contract: Faker::Address.building_number,
+          state: "RS",
           admin: Admin.find(1)
         )
       end
@@ -52,7 +55,7 @@ namespace :dev do
           email: Faker::Internet.email,
           password: "123456",
           password_confirmation: "123456",
-          name: Faker::OnePiece.character,
+          name: Faker::Pokemon.name,
           state: "RS",
           city: "Capão da Canoa",
           number: "1865",
@@ -90,6 +93,26 @@ namespace :dev do
   end
   ##########################################################
   ##########################################################
+  desc "Cria viagens rápidas falsas"
+  task create_fast_travels: :environment do
+    puts "Cadastrando as viagens rápidas falsas"
+      5.times do
+        fast = FastTravel.create!(
+          due_date: [12,15,18,20,25].sample,
+          email: Faker::Internet.email,
+          final_tour: Faker::Pokemon.location,
+          inicial_tour: Faker::Pokemon.location,
+          name: Faker::Pokemon.name,
+          number_passenger: [1,2,4,5,6,7,8].sample,
+          phone: Faker::PhoneNumber.phone_number,
+          price: Faker::Address.building_number,
+          admin: Admin.find(1)
+        )
+      end
+    puts "Motoristas falsos cadastrados com sucesso"
+  end
+  ##########################################################
+  ##########################################################
   desc "Cria motoristas falsos"
   task create_drivers: :environment do
     puts "Cadastrando os motoristas falsos"
@@ -110,9 +133,9 @@ namespace :dev do
     puts "Cadastrando os Carros falsos"
       5.times do
         car = Car.create!(
-          capacity: [1,2,3,4,5,6,7,8,9,10].sample,
-          plate: [1234,1251,6135,1356,1356].sample,
-          model: Faker::OnePiece.character,
+          capacity: [4,5,6,7,8,9,10].sample,
+          plate: ["123/WE12","125/12W1","613/QSS5","136/AAWH","AW3/W1QS"].sample,
+          model: Faker::Pokemon.name,
           year: [2000,2001,2003,2005,2009].sample,
           mark: Faker::Pokemon.name,
           admin: Admin.find(1)

@@ -7,7 +7,7 @@
           <th>Vencimento</th>
           <th style="width: 60px">Status</th>
           <th>Valor</th>
-          <th style="width: 150px"></th>
+          <th style="width: 50px"></th>
         </tr>
         <% @invoices.each do |invoice| %>
         <tr>
@@ -24,10 +24,6 @@
           <% end %>
           <td><%= invoice.value %></td>
           <td>
-            <button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i></button>
-            <%= link_to 'oi', class: "btn btn-info" do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
             <%= link_to 'oi', method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir o usuário <b></b>?" } do %>
               <i class="fa fa-ban"></i>
             <% end %>
