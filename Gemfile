@@ -66,6 +66,10 @@ gem "select2-rails"
 gem 'chartkick', '~> 2.2.0'
 # The simplest way to group temporal data
 gem 'groupdate'
+# Timer do rails para apagar automaticamente
+gem 'whenever', require: false
+# Foreman para inicialização
+gem 'foreman'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

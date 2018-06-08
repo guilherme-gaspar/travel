@@ -72,15 +72,15 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
     if(Date.today.wday == 1)
       "mond = ?"
     elsif (Date.today.wday == 2)
-      "tues"
+      "tues = ?"
     elsif (Date.today.wday == 3)
-      "wedn"
+      "wedn = ?"
     elsif (Date.today.wday == 4)
-      "thur"
+      "thur = ?"
     elsif (Date.today.wday == 5)
-      "frid"
+      "frid = ?"
     elsif (Date.today.wday == 6)
-      "satu"
+      "satu = ?"
     elsif (Date.today.wday == 0)
       0
     end
