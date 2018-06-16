@@ -103,7 +103,9 @@
             <% end %>
           </td>
           <td>
-            <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-map-marker"></i></button>
+            <%= link_to trajectory_path(route), class: "btn btn-success" do %>
+              <i class="glyphicon glyphicon-map-marker"></i>
+            <% end %>
             <%= link_to edit_backoffice_admins_route_path(route), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
             <% end %>

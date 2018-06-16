@@ -11,6 +11,7 @@ module Travel
 
       config.to_prepare do
         Devise::SessionsController.layout 'admin_lte_2_login'
+        Devise::PasswordsController.layout "password"
       end
 
     # Settings in config/environments/* take precedence over those specified here.

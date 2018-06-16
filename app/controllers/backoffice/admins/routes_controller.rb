@@ -17,7 +17,6 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
   # end
 
 
-
   def index
     @routes = Route.all.where(["admin_id = ?", current_admin.id]).page(params[:page]).per(7)
     @capacity = Route.where(period_day: "M").joins(:car).sum(:capacity)

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  default_url_options :host => "easyroutes.com"
 
   root 'home#index'
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations' }
 
+  resources :trajectories, only: [:show]
 
   namespace :backoffice do
     namespace :admins do
