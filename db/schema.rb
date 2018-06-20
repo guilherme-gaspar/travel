@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608012523) do
+ActiveRecord::Schema.define(version: 20180620160648) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -157,6 +157,17 @@ ActiveRecord::Schema.define(version: 20180608012523) do
   end
 
   add_index "settings", ["admin_id"], name: "index_settings_on_admin_id"
+
+  create_table "statements", force: :cascade do |t|
+    t.date     "skip_day"
+    t.integer  "user_id"
+    t.string   "skip_period"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "statements", ["user_id"], name: "index_statements_on_user_id"
 
   create_table "universities", force: :cascade do |t|
     t.string   "name"

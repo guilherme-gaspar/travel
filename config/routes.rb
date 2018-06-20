@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations' }
 
   resources :trajectories, only: [:show]
+  resources :documentations, only: [:index]
 
   namespace :backoffice do
     namespace :admins do

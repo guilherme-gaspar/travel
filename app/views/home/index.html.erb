@@ -48,7 +48,9 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team"><b>Documentação</b></a>
+              <%= link_to documentations_path, class: "nav-link js-scroll-trigger" do %>
+                <b>Documentação</b>
+              <% end %>
             </li>
           </ul>
         </div>

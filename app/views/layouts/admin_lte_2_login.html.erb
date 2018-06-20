@@ -65,12 +65,12 @@
         <div class="col-xs-3 pull-right">
           <%= f.submit 'Entrar', class: 'btn btn-primary btn-block btn-flat' %>
           &nbsp;
+        <% if request.path == new_admin_session_path %>
           <%= link_to 'Esqueceu sua senha?', new_admin_password_path %>
         </div><!-- /.col -->
-        <% if request.path == new_admin_session_path %>
-          <div class="col-xs-3 pull-left">
-            <%= link_to 'Registrar', new_admin_registration_path, class: 'btn btn-info btn-block btn-flat' %>
-          </div><!-- /.col -->
+        <div class="col-xs-3 pull-left">
+          <%= link_to 'Registrar', new_admin_registration_path, class: 'btn btn-info btn-block btn-flat' %>
+        </div><!-- /.col -->
         <% end %>
 
       </div>

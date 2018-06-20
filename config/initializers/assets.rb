@@ -10,4 +10,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( home/home.css home/home.js
                                                   bootstrap-for-home.css font-awesome-for-home.css
-                                                  jquery-for-home.js bootstrap.bundle-for-home.js )
+                                                  jquery-for-home.js bootstrap.bundle-for-home.js
+                                                  elegantfont-documentation.css prism-documentation.css style-documentation.css
+                                                  bootstrap.js jquery-matchHeight.js jquery-scrollTo.js prism.js main-documentation.js )
