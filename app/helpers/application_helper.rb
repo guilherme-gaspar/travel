@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def period_day(period)
-    @weeks = Week.all
+    @weeks = Week.joins(:user).where("users.admin_id = ?", current_admin.id)
     if(Date.today.wday == 1)
       @weeks.where(mond: period).count
     elsif (Date.today.wday == 2)
@@ -27,17 +27,17 @@ module ApplicationHelper
   def allocated(period)
     # .where("allocated = ?", 1)
     if(Date.today.wday == 1)
-      User.joins(:week).where(:weeks => {mond: period})
+      User.where(admin_id: current_admin.id).joins(:week).where(:weeks => {mond: period})
     elsif (Date.today.wday == 2)
-      User.joins(:week).where(:weeks => {tues: period})
+      User.where(admin_id: current_admin.id).joins(:week).where(:weeks => {tues: period})
     elsif (Date.today.wday == 3)
-      User.joins(:week).where(:weeks => {wedn: period})
+      User.where(admin_id: current_admin.id).joins(:week).where(:weeks => {wedn: period})
     elsif (Date.today.wday == 4)
-      User.joins(:week).where(:weeks => {thur: period})
+      User.where(admin_id: current_admin.id).joins(:week).where(:weeks => {thur: period})
     elsif (Date.today.wday == 5)
-      User.joins(:week).where(:weeks => {frid: period})
+      User.where(admin_id: current_admin.id).joins(:week).where(:weeks => {frid: period})
     elsif (Date.today.wday == 6)
-      User.joins(:week).where(:weeks => {satu: period})
+      User.where(admin_id: current_admin.id).joins(:week).where(:weeks => {satu: period})
     elsif (Date.today.wday == 0)
       []
     end
@@ -70,6 +70,7 @@ module ApplicationHelper
       "- Painel administrativo de relatórios"
     end
   end
+  
   def select_settings
     Setting.where("admin_id = ?", current_admin.id).pluck(:origin)
   end

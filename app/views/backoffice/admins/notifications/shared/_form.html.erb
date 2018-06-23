@@ -23,7 +23,7 @@
 
           <div class="form-group col-md-4">
             <%= f.label :university %>
-            <%= f.select(:university_id, University.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
+            <%= f.select(:university_id, University.where(admin_id: current_admin.id).collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
           </div>
 
           <div class="form-group col-md-4">

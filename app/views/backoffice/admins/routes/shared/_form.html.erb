@@ -17,17 +17,17 @@
     <div class="tab-pane active" id="tab_1">
       <div class="form-group col-md-4">
         <%= f.label :university %>
-        <%= f.select(:university_id, University.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
+        <%= f.select(:university_id, University.where(admin_id: current_admin.id).collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
       </div>
 
       <div class="form-group col-md-4">
         <%= f.label :driver %>
-        <%= f.select(:driver_id, Driver.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
+        <%= f.select(:driver_id, Driver.where(admin_id: current_admin.id).collect {|p| [ p.name, p.id ] }, { include_blank: true }, class: "form-control") %>
       </div>
 
       <div class="form-group col-md-4">
         <%= f.label :car %>
-        <%= f.select(:car_id, Car.all.collect {|p| [ p.plate, p.id ] }, { include_blank: true }, class: "form-control") %>
+        <%= f.select(:car_id, Car.where(admin_id: current_admin.id).collect {|p| [ p.plate, p.id ] }, { include_blank: true }, class: "form-control") %>
       </div>
 
       <div class="form-group col-md-6">
