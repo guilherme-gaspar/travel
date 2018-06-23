@@ -19,32 +19,33 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <!-- Messages: style can be found in dropdown.less-->
-        <li class="dropdown messages-menu">
+        <li class="dropdown notifications-menu">
           <!-- Menu toggle button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
-            <span class="label label-danger">1</span>
+            <% if @statements.count > 0 %>
+              <span class="label label-danger"><%= @statements.count %></span>
+            <% end %>
           </a>
           <ul class="dropdown-menu">
-            <li class="header">Você tem 1 novo comunicado</li>
+            <li class="header">Você tem <%= @statements.count %> comunicados hoje</li>
             <li>
-              <!-- inner menu: contains the messages -->
+              <!-- Inner Menu: contains the statements -->
               <ul class="menu">
-                <li><!-- start message -->
-                  <a href="">
-                    <!-- Message title and timestamp -->
-                    <h4>
-                      Guilherme Gaspar
-                    </h4>
-                    <!-- The message -->
-                    <p>Não vou hoje</p>
+                <!-- start notification -->
+                <% @statements.each do |statement| %>
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#modal-<%= statement.id %>">
+                    <i class="fa fa-users text-aqua"></i> <%= statement.user.name %>
                   </a>
-                </li><!-- end message -->
-              </ul><!-- /.menu -->
+                </li>
+                <% end %>
+                <!-- end statement -->
+              </ul>
             </li>
             <li class="footer"><a href="#">Clique sobre o comunicado para mais detalhes...</a></li>
           </ul>
-        </li><!-- /.messages-menu -->
+        </li>
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu Toggle Button -->
@@ -65,3 +66,29 @@
     </div>
   </nav>
 </header>
+
+<!-- Modal for see statement -->
+
+<!-- Modals for notifications -->
+<% @statements.each do |statement| %>
+  <div class="modal fade" id="modal-<%= statement.id %>" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Comunicado de: <b><%= statement.user.name %></b></h4>
+        </div>
+        <div class="modal-body">
+          <p><%= statement.description %></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+<% end %>

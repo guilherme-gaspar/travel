@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     namespace :users do
       resources :home, only: [:index]
       resources :finances, only: [:index]
+      resources :statements, only: [:new, :create]
     end
   end
 

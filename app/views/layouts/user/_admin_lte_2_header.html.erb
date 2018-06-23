@@ -32,9 +32,9 @@
             </ul>
           </li>
           <li class="<%= current_class?(backoffice_users_home_index_path) %>">
-            <%= link_to backoffice_users_home_index_path do %>
+            <a href="#" data-toggle="modal" data-target="#modalStatement">
               <span>Comunicados</span>
-            <% end%>
+            </a>
           </li>
         </ul>
         <form class="navbar-form navbar-left" role="search">
@@ -121,3 +121,43 @@
   </div>
   <!-- /.modal -->
 <% end %>
+
+<!-- Modal for Statement -->
+<div class="modal fade" id="modalStatement" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">O que você quer comunicar ao gestor da empresa?</h4>
+      </div>
+      <%= form_for([:backoffice, :users, @statement]) do |f| %>
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Para o gestor:</label>
+              <input type="text" disabled class="form-control" value="<%= current_user.admin.fantasy_name %>" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <%= f.label :skip_day, class: "col-form-label" %>
+              <%= f.date_field :skip_day, class:"form-control", placeholder: "Informe o dia" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :skip_period, class: "col-form-label" %>
+              <%= f.text_field :skip_period, class:"form-control", placeholder: "Informe o periodo" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description, class: "col-form-label" %>
+              <%= f.text_area :description, class:"form-control", placeholder: "Informe uma descrição" %>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      <% end %>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
