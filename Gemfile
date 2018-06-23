@@ -60,6 +60,8 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 # JASNY
 gem 'rails-assets-bootstrap-jasny', source: 'https://rails-assets.org'
+# Gem faker para dados falsos
+gem 'faker'
 
 # PRAWN para PDF
 gem 'prawn'
@@ -91,8 +93,6 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  # Gem faker para dados falsos
-  gem 'faker'
   # Gem ERD para diagrama ER
   gem 'rails-erd'
   # Binario do RSPEC
