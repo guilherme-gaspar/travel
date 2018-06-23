@@ -39,7 +39,7 @@ module ApplicationHelper
     elsif (Date.today.wday == 6)
       User.joins(:week).where(:weeks => {satu: period})
     elsif (Date.today.wday == 0)
-      0
+      []
     end
   end
 

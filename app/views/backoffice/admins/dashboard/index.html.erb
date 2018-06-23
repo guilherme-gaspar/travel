@@ -76,7 +76,13 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <%= line_chart User.group_by_day(:created_at).count %>
+                <% if User.all.count == 0 %>
+                  <%= line_chart User.where(admin_id: current_admin.id).group_by_day(:created_at).count %>
+                <% else %>
+                  <center>
+                    Não existem usuários cadastrados!
+                  </center>
+                <% end %>
               </div>
               <!-- /.row -->
             </div>
@@ -102,7 +108,13 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <%= bar_chart User.group(:city).where("admin_id = ?", current_admin.id).count %>
+                <% if User.all.count == 0 %>
+                  <%= bar_chart User.group(:city).where("admin_id = ?", current_admin.id).count %>
+                <% else %>
+                  <center>
+                    Não existem usuários cadastrados!
+                  </center>
+                <% end %>
               </div>
               <!-- /.row -->
             </div>
@@ -126,7 +138,13 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <%= pie_chart User.group(:street).count %>
+                <% if User.all.count == 0 %>
+                  <%= pie_chart User.group(:street).where(admin_id: current_admin.id).count %>
+                <% else %>
+                  <center>
+                    Não existem usuários cadastrados!
+                  </center>
+                <% end %>
               </div>
               <!-- /.row -->
             </div>
