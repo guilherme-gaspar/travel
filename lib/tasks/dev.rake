@@ -70,7 +70,7 @@ namespace :dev do
           created_at: Date.today-[1,2,3,4,5].sample
         )
         contract = Contract.create!(
-          due_date: [10,20,30],
+          due_date: [10,20,30].sample,
           number_installments: [1,2,3,4,5].sample,
           value: 100.00,
           user: user,
@@ -102,7 +102,7 @@ namespace :dev do
     puts "Cadastrando as viagens rápidas falsas"
       5.times do
         fast = FastTravel.create!(
-          due_date: [12,15,18,20,25].sample,
+          due_date: ["10/10/10","12/12/12","11/11/11"].sample,
           email: Faker::Internet.email,
           final_tour: Faker::Pokemon.location,
           inicial_tour: Faker::Pokemon.location,
