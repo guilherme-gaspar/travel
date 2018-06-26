@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   # validates
   validates :name, presence: true
+  validates :university, presence: true
 
   # Scopos
   scope :by_name_search, ->(code) { joins(:contract).where("name = ?", "#{code}") }

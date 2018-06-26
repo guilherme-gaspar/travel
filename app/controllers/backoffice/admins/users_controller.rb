@@ -3,6 +3,9 @@ class Backoffice::Admins::UsersController < Backoffice::AdminsController
 
   def index
     @users = User.all.where(["admin_id = ?", current_admin.id]).page(params[:page]).per(7)
+    if University.where(admin_id: current_admin.id).count == 0
+      redirect_to new_backoffice_admins_university_path, notice: "Você não tem nenhuma universidade cadastrada, cadastre ao menos uma universidade!"
+    end
   end
 
   def new
