@@ -1,0 +1,12 @@
+'pt-BR':
+  activerecord:
+    models:
+      admin:
+        one: Gestor da empresa
+        other: Gestores da empresa
+    attributes:
+      admin:
+        name: Nome
+      contract:
+        number_installments: Número de parcelas
+        value: Valor do contrato

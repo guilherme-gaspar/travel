@@ -28,7 +28,7 @@
             <% end %>
           </a>
           <ul class="dropdown-menu">
-            <li class="header">Você tem <%= @statements.count %> comunicados hoje</li>
+            <li class="header"><%= if @statements.count == 0 then "Não tem nenhum comunicado para hoje" else "Você tem #{@statements.count} #{t('text.comunicate', count: @statements.count)} hoje" end %></li>
             <li>
               <!-- Inner Menu: contains the statements -->
               <ul class="menu">

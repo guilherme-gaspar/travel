@@ -143,7 +143,7 @@
             </div>
             <div class="form-group">
               <%= f.label :skip_period, class: "col-form-label" %>
-              <%= f.text_field :skip_period, class:"form-control", placeholder: "Informe o periodo" %>
+              <%= f.select :skip_period, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]]), { include_blank: true }, { :class => "form-control" } %>
             </div>
             <div class="form-group">
               <%= f.label :description, class: "col-form-label" %>
