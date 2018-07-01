@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'backoffice/admins/users/search_user'
   get 'backoffice/users/finances/contract'
 
+  get 'documentations/doc_pagseguro'
+  get 'documentations/doc_how_to_use'
+  get 'documentations/doc_tips'
+
 
 
   devise_for :users, controllers: { sessions: 'users/sessions' }

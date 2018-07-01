@@ -1,0 +1,37 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu">
+      <!-- Optionally, you can add icons to the links -->
+      <li class="<%= current_class?(documentations_path) %>">
+        <%= link_to documentations_path do %>
+          <i class="fa fa-home"></i><span>Principal</span>
+        <% end%>
+      </li>
+
+      <li class="<%= current_class?(documentations_doc_how_to_use_path) %>">
+        <%= link_to documentations_doc_how_to_use_path do %>
+          <i class="fa fa-user"></i><span>Como utilizar o sistema?</span>
+        <% end%>
+      </li>
+
+      <li class="<%= current_class?(documentations_doc_pagseguro_path) %>">
+        <%= link_to documentations_doc_pagseguro_path do %>
+          <i class="fa fa-dollar"></i><span>Integrando ao PagSeguro</span>
+        <% end%>
+      </li>
+
+      <li class="<%= current_class?(documentations_doc_tips_path) %>">
+        <%= link_to documentations_doc_tips_path do %>
+          <i class="fa fa-check-square-o"></i><span>Dicas para utilização</span>
+        <% end%>
+      </li>
+
+    </ul><!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>
