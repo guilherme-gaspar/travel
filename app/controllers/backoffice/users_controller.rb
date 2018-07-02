@@ -1,6 +1,6 @@
 class Backoffice::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_filter :find_notifications, :new_statement
+  before_filter :find_notifications, :new_statement, :statement_exists
 
   layout 'user/admin_lte_2'
 
@@ -10,6 +10,15 @@ class Backoffice::UsersController < ApplicationController
 
   def new_statement
     @statement = Statement.new
+  end
+
+  def statement_exists
+    statement_exists = Statement.where(["user_id = ? and skip_day = ?", current_user.id, Date.today])
+    if statement_exists.count == 0
+      @statement_exists = false
+    else
+      @statement_exists = true
+    end
   end
 
 

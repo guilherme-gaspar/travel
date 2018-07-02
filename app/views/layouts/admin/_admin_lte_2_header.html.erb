@@ -43,7 +43,7 @@
                 <!-- end statement -->
               </ul>
             </li>
-            <li class="footer"><a href="#">Clique sobre o comunicado para mais detalhes...</a></li>
+            <li class="footer"><a href="#"><%= if @statements.count == 0 then "" else "Clique sobre o comunicado para mais detalhes..." end %></a></li>
           </ul>
         </li>
         <!-- User Account Menu -->
@@ -83,7 +83,10 @@
           <p><%= statement.description %></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+          <%= link_to backoffice_admins_statement_path(statement), method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja excluir o comunicado de <b>#{statement.user.name}</b>?" } do %>
+            Apagar comunicado
+          <% end %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>
       <!-- /.modal-content -->

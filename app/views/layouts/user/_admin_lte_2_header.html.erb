@@ -2,7 +2,7 @@
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="../../index2.html" class="navbar-brand"><b>Easy</b> Routes</a>
+        <a href="" class="navbar-brand"><b>Easy</b> Routes</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -129,30 +129,36 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">O que você quer comunicar ao gestor da empresa?</h4>
+        <h4 class="modal-title">Comunique-se com o gestor da empresa</h4>
       </div>
-      <%= form_for([:backoffice, :users, @statement]) do |f| %>
+      <% if @statement_exists == false %>
+        <%= form_for([:backoffice, :users, @statement]) do |f| %>
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Para o gestor:</label>
+                <input type="text" disabled class="form-control" value="<%= current_user.admin.fantasy_name %>" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <%= f.label :skip_day, class: "col-form-label" %>
+                <%= f.date_field :skip_day, class:"form-control", placeholder: "Informe o dia" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :skip_period, class: "col-form-label" %>
+                <%= f.select :skip_period, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]]), { include_blank: true }, { :class => "form-control" } %>
+              </div>
+              <div class="form-group">
+                <%= f.label :description, class: "col-form-label" %>
+                <%= f.text_area :description, class:"form-control", placeholder: "Informe uma descrição" %>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        <% end %>
+      <% else %>
         <div class="modal-body">
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Para o gestor:</label>
-              <input type="text" disabled class="form-control" value="<%= current_user.admin.fantasy_name %>" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <%= f.label :skip_day, class: "col-form-label" %>
-              <%= f.date_field :skip_day, class:"form-control", placeholder: "Informe o dia" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :skip_period, class: "col-form-label" %>
-              <%= f.select :skip_period, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]]), { include_blank: true }, { :class => "form-control" } %>
-            </div>
-            <div class="form-group">
-              <%= f.label :description, class: "col-form-label" %>
-              <%= f.text_area :description, class:"form-control", placeholder: "Informe uma descrição" %>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          Você já fez um comunicado hoje, entre em contato com o seu gestor através do telefone: <b><%= current_user.admin.phone %></b> ou no e-mail: <b><%= current_user.admin.email %></b>
         </div>
       <% end %>
     </div>

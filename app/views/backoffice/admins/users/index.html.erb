@@ -26,7 +26,7 @@
           <td><%= user.name %></td>
           <td><%= user.phone %></td>
           <td><%= user.email %></td>
-          <td><%= user.university.name %></td>
+          <td><%= if user.university then user.university.name else "Não cadastrada!" end %></td>
           <td>
             <%= link_to edit_backoffice_admins_user_path(user), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>

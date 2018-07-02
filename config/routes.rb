@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   default_url_options :host => "easyroutes.com"
 
   root 'home#index'
-
   get 'backoffice/admins/finances/search'
   get 'backoffice/admins/users/search_user'
   get 'backoffice/users/finances/contract'
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :trajectories, only: [:show]
   resources :documentations, only: [:index]
+
 
   namespace :backoffice do
     namespace :admins do
@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       resources :reports, except: [:show]
       resources :dashboard, except: [:show]
       resources :users, except: [:show]
+      resources :invoices, only: [:destroy]
+      resources :statements, only: [:destroy]
     end
   end
 

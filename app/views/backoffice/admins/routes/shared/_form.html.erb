@@ -114,7 +114,7 @@
       <div class="modal-body">
         <% if allocated("M").count > 0 %>
           <% allocated("M").each do |allocated| %>
-            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></b>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
               <% if allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
               <% end %>
@@ -144,7 +144,7 @@
       <div class="modal-body">
         <% if allocated("T").count > 0 %>
           <% allocated("T").each do |allocated| %>
-            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></b>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
               <% if allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
               <% end %>
@@ -174,7 +174,7 @@
       <div class="modal-body">
         <% if allocated("N").count > 0 %>
           <% allocated("N").each do |allocated| %>
-            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= allocated.university.name %></b>
+            <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
               <% if allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
               <% end %>

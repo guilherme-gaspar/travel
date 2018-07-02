@@ -10,7 +10,7 @@ class University < ActiveRecord::Base
   def address
     [number, street, city, state, "BR"].compact.join(', ')
   end
-  
+
   def address_view
     [street, number, city, state].compact.join(' - ')
   end
