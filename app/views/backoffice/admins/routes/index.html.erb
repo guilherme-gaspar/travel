@@ -84,7 +84,7 @@
           <th>Origim</th>
           <th>Carro</th>
           <th>Periodo</th>
-          <th style="width: 150px"></th>
+          <th style="width: 100px"></th>
         </tr>
         <% @routes.each do |route| %>
         <tr>
@@ -103,12 +103,18 @@
             <% end %>
           </td>
           <td>
-            <%= link_to trajectory_path(route), class: "btn btn-success" do %>
-              <i class="glyphicon glyphicon-map-marker"></i>
+            <% if route.users.count == 0  %>
+              <%= link_to trajectory_path(route), class: "btn btn-success", disabled: true do %>
+                <i class="glyphicon glyphicon-map-marker"></i>
+              <% end %>
+            <% else %>
+              <%= link_to trajectory_path(route), class: "btn btn-success" do %>
+                <i class="glyphicon glyphicon-map-marker"></i>
+              <% end %>
             <% end %>
-            <%= link_to edit_backoffice_admins_route_path(route), class: "btn btn-info" do %>
+            <!-- <%= link_to edit_backoffice_admins_route_path(route), class: "btn btn-info" do %>
               <i class="fa fa-edit"></i>
-            <% end %>
+            <% end %> -->
             <%= link_to backoffice_admins_route_path(route), method: :delete, class: "btn btn-danger", data: {confirm: "Você tem certeza que deseja o excluir a rota <b>#{route.period_day}</b>?" } do %>
               <i class="fa fa-ban"></i>
             <% end %>
@@ -193,7 +199,7 @@ directionsDisplay.setMap(handler.getMap());
         <% if allocated("M").any? %>
           <% allocated("M").each do |allocated| %>
             <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
-              <% if Statement.where("user_id = ? and skip_day = ?", allocated.id, Date.today).first %>
+              <% if Statement.where("user_id = ? and skip_day = ? and skip_period = ?", allocated.id, Date.today, "M").first %>
                 <span class="text-red"><%= "- (Usuário não vai hoje)" %></span>
               <% elsif allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
@@ -225,7 +231,7 @@ directionsDisplay.setMap(handler.getMap());
         <% if allocated("T").count > 0 %>
           <% allocated("T").each do |allocated| %>
             <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
-              <% if Statement.where("user_id = ? and skip_day = ?", allocated.id, Date.today).first %>
+              <% if Statement.where("user_id = ? and skip_day = ? and skip_period = ?", allocated.id, Date.today, "T").first %>
                 <span class="text-red"><%= "- (Usuário não vai hoje)" %></span>
               <% elsif allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
@@ -257,7 +263,7 @@ directionsDisplay.setMap(handler.getMap());
         <% if allocated("N").count > 0 %>
           <% allocated("N").each do |allocated| %>
             <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
-              <% if Statement.where("user_id = ? and skip_day = ?", allocated.id, Date.today).first %>
+              <% if Statement.where("user_id = ? and skip_day = ?, skip_period = ?", allocated.id, Date.today, "N").first %>
                 <span class="text-red"><%= "- (Usuário não vai hoje)" %></span>
               <% elsif allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>

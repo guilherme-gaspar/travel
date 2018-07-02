@@ -15,12 +15,10 @@
         <tbody>
           <tr>
             <th>Nome</th>
-            <th>Email</th>
             <th>Endereço</th>
           </tr>
           <% @route.users.each do |user| %>
           <tr>
-            <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.address %></td>
           </tr>
@@ -32,7 +30,9 @@
   <br />
   <!-- /.box -->
   <center>
-  <button type="button" class="btn btn-primary">Clique aqui para visualizar sua trajetória</button>
+    <%= link_to trajectory_path(@route), class: "btn btn-primary" do %>
+      Clique aqui para visualizar sua trajetória
+    <% end %>
   </center>
 
 </div>

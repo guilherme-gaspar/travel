@@ -40,6 +40,7 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
 
     if @route.save
       create_passengers(@route)
+      RouteMailer.send_route_email(@route, @route.driver).deliver_now
       redirect_to backoffice_admins_routes_path, notice: "A rota para (#{@route.university.name}) foi cadastrado com sucesso!"
     else
       render :new
