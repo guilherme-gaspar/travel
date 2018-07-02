@@ -64,14 +64,33 @@ class Backoffice::Admins::RoutesController < Backoffice::AdminsController
     end
 
     quantity_passengers.times do
-      user = User.where("allocated = 0").joins(:university).where(:universities => {:name => university}).joins(:week).where(day_of_week, period_day).first
-      passenger = Passenger.create!(
-        route: route,
-        user: user
-      )
-      if user
-        user.allocated = 1
-        user.save
+      user = User.where("allocated = ?", 0).joins(:university).where(:universities => {:name => university}).joins(:week).where(day_of_week, period_day).first
+      statement = Statement.where("user_id = ? and skip_day = ?", user.id, Date.today).first
+      unless statement
+        passenger = Passenger.create!(
+          route: route,
+          user: user
+        )
+        if user
+          user.allocated = 1
+          user.save
+        end
+      else
+        unless statement.skip_period == period_day
+          passenger = Passenger.create!(
+            route: route,
+            user: user
+          )
+          if user
+            user.allocated = 1
+            user.save
+          end
+        else
+          if user
+            user.allocated = 1
+            user.save
+          end
+        end
       end
     end
   end
