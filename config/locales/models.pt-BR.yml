@@ -4,9 +4,84 @@
       admin:
         one: Gestor da empresa
         other: Gestores da empresa
+      university:
+        one: Universidade
+        other: Universidades
     attributes:
       admin:
         name: Nome
+        fantasy_name: Nome fantasia
+        social_name: Razão social
+        cnpj: CNPJ
+        email: E-mail
+        phone: Telefone
+        street: Rua
+        number: Número
+        city: Cidade
+        state: Estado
+        avatar: Foto
       contract:
         number_installments: Número de parcelas
         value: Valor do contrato
+        due_date: Dia de vencimento
+      car:
+        capacity: Capacidade
+        model: Modelo
+        plate: Placa
+        year: Ano
+        mark: Marca
+      driver:
+        name: Nome
+        email: E-mail
+      fast_travel:
+        name: Nome
+        phone: Telefone
+        email: E-mail
+        number_passenger: Número de passageiros
+        price: Preço total
+        due_date: Data de vencimento
+        inicial_tour: Percurso inicial
+        final_tour: Percurso final
+      invoice:
+        
+      notification:
+        title: Título
+        description: Descrição
+        notification_date: Data da notificação
+        university: Universidade
+      route:
+        university: Universidade
+        origin: Origem
+        driver: Motorista
+        car: Carro
+        period_day: Período do dia
+      setting:
+        token: Token - PAGSEGURO
+        origin: Origem
+      statement:
+        skip_day: Dia da falta
+        skip_period: Período da falta
+        description: Descrição
+      university:
+        name: Nome
+        number_contract: Número do contrato
+        street: Rua
+        number: Número
+        city: Cidade
+        state: Estado
+      user:
+        name: Nome
+        email: E-mail
+        phone: Telefone
+        street: Rua
+        number: Número
+        city: Cidade
+        state: Estado
+        university: Universidade
+      week:
+        mond: Segunda
+        tues: Terça
+        wedn: Quarta
+        thur: Quinta
+        frid: Sexta
+        satu: Sábado
