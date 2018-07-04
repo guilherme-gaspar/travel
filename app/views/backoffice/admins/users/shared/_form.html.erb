@@ -106,27 +106,27 @@
       <%= f.fields_for :week do |week| %>
         <div class="form-group col-md-2">
           <%= week.label :mond %>
-          <%= week.select :mond, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.mond), { include_blank: true }, { :class => "form-control" } %>
+          <%= week.select :mond, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]], @user.week.mond), { include_blank: true }, { :class => "form-control" } %>
         </div>
         <div class="form-group col-md-2">
           <%= week.label :tues %>
-          <%= week.select :tues, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.tues), { include_blank: true }, { :class => "form-control" } %>
+          <%= week.select :tues, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]], @user.week.tues), { include_blank: true }, { :class => "form-control" } %>
         </div>
         <div class="form-group col-md-2">
           <%= week.label :wedn %>
-          <%= week.select :wedn, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.wedn), { include_blank: true }, { :class => "form-control" } %>
+          <%= week.select :wedn, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]], @user.week.wedn), { include_blank: true }, { :class => "form-control" } %>
         </div>
         <div class="form-group col-md-2">
           <%= week.label :thur %>
-          <%= week.select :thur, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.thur), { include_blank: true }, { :class => "form-control" } %>
+          <%= week.select :thur, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]], @user.week.thur), { include_blank: true }, { :class => "form-control" } %>
         </div>
         <div class="form-group col-md-2">
           <%= week.label :frid %>
-          <%= week.select :frid, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.frid), { include_blank: true }, { :class => "form-control" } %>
+          <%= week.select :frid, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]], @user.week.frid), { include_blank: true }, { :class => "form-control" } %>
         </div>
         <div class="form-group col-md-2">
           <%= week.label :satu %>
-          <%= week.select :satu, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"], ['Dia todo', "MTN"]], @user.week.satu), { include_blank: true }, { :class => "form-control" } %>
+          <%= week.select :satu, options_for_select([['Manha', "M"], ['Tarde', "T"], ['Noite', "N"]], @user.week.satu), { include_blank: true }, { :class => "form-control" } %>
         </div>
 
         &nbsp;

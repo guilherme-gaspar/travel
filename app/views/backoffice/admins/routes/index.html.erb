@@ -203,8 +203,6 @@ directionsDisplay.setMap(handler.getMap());
                 <span class="text-red"><%= "- (Usuário não vai hoje)" %></span>
               <% elsif allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
-              <% else %>
-
               <% end %>
             </p>
           <% end %>
@@ -237,8 +235,6 @@ directionsDisplay.setMap(handler.getMap());
                 <span class="text-red"><%= "- (Usuário não vai hoje)" %></span>
               <% elsif allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
-              <% else %>
-              
               <% end %>
             </p>
           <% end %>
@@ -267,12 +263,10 @@ directionsDisplay.setMap(handler.getMap());
         <% if allocated("N").count > 0 %>
           <% allocated("N").each do |allocated| %>
             <p>Nome: <b><%= allocated.name %></b>, Universidade: <b><%= if allocated.university then allocated.university.name else "Não cadastrada!" end %></b>
-              <% if Statement.where("user_id = ? and skip_day = ?, skip_period = ?", allocated.id, Date.today, "N").first %>
+              <% if Statement.where("user_id = ? and skip_day = ? and skip_period = ?", allocated.id, Date.today, "N").first %>
                 <span class="text-red"><%= "- (Usuário não vai hoje)" %></span>
               <% elsif allocated.allocated == 1 %>
                 <span class="text-red"><%= "- (Usuário já alocado)" %></span>
-              <% else %>
-
               <% end %>
             </p>
           <% end %>
